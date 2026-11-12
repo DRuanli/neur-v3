@@ -1,0 +1,20 @@
+\section{Problem setup}\label{sec:setup}
+% Source: G4/PROOFS.md §0, G4/METHOD_SPEC.md §1, §3.
+We observe features $X=(x_1,\dots,x_n)$ whose labels $y\in[C]^n$ are latent. As in the prior-fitted networks behind
+TFMs \citep{muller2022pfn}, we assume an exchangeable prior: $\phi\sim p(\phi)$ and
+$(x_i,y_i)\overset{\text{iid}}{\sim}p(x,y\mid\phi)$, with a test pair $(x_*,y_*)$ from the same mechanism. For a labelled
+context $D$, the \emph{posterior predictive distribution} (PPD) of the prior is $p(y_*\mid x_*,D)$; a TFM returns an
+approximation $\tfm(y_*\mid x_*,D)$ in one forward pass. Instead of $y$ we observe weak labels $\W$ with a known
+likelihood $\lik(y)=p(\W\mid X,y)$, independent of $(x_*,y_*)$ given $(X,y)$ (A0). For \emph{partial labels} (PLL) each
+point has a candidate set $S_i\ni y_i$ and $\lik(y)=\prod_i\mathbb 1[y_i\in S_i]$, under the standard assumption that the
+probability of a candidate set does not depend on which member is true. For \emph{label proportions} (LLP) the points
+form disjoint bags $B_g$ with observed label counts $w_g$, and
+$\lik(y)=\prod_g\mathbb 1[\mathrm{counts}(y_{B_g})=w_g]$. PU data, label noise and semi-supervised learning are further
+instance-level cases, $\lik(y)=\prod_i\lik_i(y_i)$ (\cref{app:secondary}). The targets are the posterior
+over latent labels and the predictive,
+\begin{equation}\label{eq:target}
+  \pi(y)=p(y\mid X,\W)\propto p(y\mid X)\,\lik(y),\qquad
+  p(y_*\mid x_*,X,\W)=\textstyle\sum_y \pi'(y)\,p(y_*\mid x_*,(X,y)),
+\end{equation}
+with $\pi'(y)=p(y\mid x_*,X,\W)$. The analysis assumes (A1) an exact TFM, $\tfm=\ppd$, on every queried context;
+(A2) a positive PPD; and (A3) $\sum_y p(y\mid X)\lik(y)>0$. \Cref{thm:stability} removes (A1).

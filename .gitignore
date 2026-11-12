@@ -1,0 +1,17 @@
+# Kho bài v3 (neur-v3)
+__pycache__/
+.pytest_cache/
+*.pyc
+.ipynb_checkpoints/
+# gói code gửi Kaggle và kết quả tải về chưa kiểm
+*.zip
+_incoming/
+# sản phẩm biên dịch LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+paper/main.log

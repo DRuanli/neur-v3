@@ -1,0 +1,102 @@
+run_g7 · part=baselines · split=eval · backend=tabpfn_v2 · code=py-387059443932 · config=df15c9043eabdf1c
+
+=== RQ5 Lost: n=1122, d=108, Q=16
+
+=== RQ5 MSRCv2: n=1758, d=48, Q=23
+
+=== RQ5 BirdSong: n=4998, d=38, Q=13
+                BirdSong pll_real  0.0 s0 proden_tun       0.7460 155.8s
+                BirdSong pll_real  0.0 s0 glwspll_def      0.7280 13.0s
+                BirdSong pll_real  0.0 s0 glwspll_tun      0.7400 220.7s
+                BirdSong pll_real  0.0 s0 rc_def           0.7200 4.1s
+                BirdSong pll_real  0.0 s0 rc_tun           0.7300 141.7s
+                BirdSong pll_real  0.0 s0 cc_def           0.7200 4.2s
+                BirdSong pll_real  0.0 s0 cc_tun           0.6980 131.9s
+                BirdSong pll_real  0.0 s1 proden_def       0.6800 8.2s
+                BirdSong pll_real  0.0 s1 proden_tun       0.7380 154.6s
+                BirdSong pll_real  0.0 s1 glwspll_def      0.7220 12.8s
+                BirdSong pll_real  0.0 s1 glwspll_tun      0.7700 212.4s
+                BirdSong pll_real  0.0 s1 rc_def           0.7140 4.1s
+                BirdSong pll_real  0.0 s1 rc_tun           0.7280 203.0s
+                BirdSong pll_real  0.0 s1 cc_def           0.7180 4.2s
+                BirdSong pll_real  0.0 s1 cc_tun           0.7280 167.1s
+                BirdSong pll_real  0.0 s2 proden_def       0.6240 8.0s
+                BirdSong pll_real  0.0 s2 proden_tun       0.6820 168.9s
+                BirdSong pll_real  0.0 s2 glwspll_def      0.7340 12.8s
+                BirdSong pll_real  0.0 s2 glwspll_tun      0.6900 243.5s
+                BirdSong pll_real  0.0 s2 rc_def           0.7080 4.1s
+                BirdSong pll_real  0.0 s2 rc_tun           0.6540 162.9s
+                BirdSong pll_real  0.0 s2 cc_def           0.7080 4.2s
+                BirdSong pll_real  0.0 s2 cc_tun           0.6620 151.1s
+                BirdSong pll_real  0.0 s3 proden_def       0.6740 8.0s
+                BirdSong pll_real  0.0 s3 proden_tun       0.7160 126.5s
+                BirdSong pll_real  0.0 s3 glwspll_def      0.7180 12.8s
+                BirdSong pll_real  0.0 s3 glwspll_tun      0.7680 157.7s
+                BirdSong pll_real  0.0 s3 rc_def           0.7300 4.1s
+                BirdSong pll_real  0.0 s3 rc_tun           0.7120 141.8s
+                BirdSong pll_real  0.0 s3 cc_def           0.7280 4.2s
+                BirdSong pll_real  0.0 s3 cc_tun           0.6940 125.4s
+                BirdSong pll_real  0.0 s4 proden_def       0.6880 8.0s
+                BirdSong pll_real  0.0 s4 proden_tun       0.7260 129.1s
+                BirdSong pll_real  0.0 s4 glwspll_def      0.7300 12.8s
+                BirdSong pll_real  0.0 s4 glwspll_tun      0.7000 220.3s
+                BirdSong pll_real  0.0 s4 rc_def           0.7440 4.1s
+                BirdSong pll_real  0.0 s4 rc_tun           0.7320 246.3s
+                BirdSong pll_real  0.0 s4 cc_def           0.7440 4.2s
+                BirdSong pll_real  0.0 s4 cc_tun           0.7260 198.2s
+                BirdSong pll_real  0.0 s5 proden_def       0.6660 8.0s
+                BirdSong pll_real  0.0 s5 proden_tun       0.6860 139.0s
+                BirdSong pll_real  0.0 s5 glwspll_def      0.7120 13.1s
+                BirdSong pll_real  0.0 s5 glwspll_tun      0.7060 235.4s
+                BirdSong pll_real  0.0 s5 rc_def           0.7100 4.1s
+                BirdSong pll_real  0.0 s5 rc_tun           0.6920 126.4s
+                BirdSong pll_real  0.0 s5 cc_def           0.7100 4.3s
+                BirdSong pll_real  0.0 s5 cc_tun           0.7060 105.4s
+                BirdSong pll_real  0.0 s6 proden_def       0.6940 8.0s
+                BirdSong pll_real  0.0 s6 proden_tun       0.6960 141.5s
+                BirdSong pll_real  0.0 s6 glwspll_def      0.7380 13.0s
+                BirdSong pll_real  0.0 s6 glwspll_tun      0.7460 165.6s
+                BirdSong pll_real  0.0 s6 rc_def           0.7280 4.2s
+                BirdSong pll_real  0.0 s6 rc_tun           0.6920 265.5s
+                BirdSong pll_real  0.0 s6 cc_def           0.7280 4.2s
+                BirdSong pll_real  0.0 s6 cc_tun           0.7020 207.2s
+/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+                BirdSong pll_real  0.0 s7 proden_def       0.6660 8.1s
+/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+                BirdSong pll_real  0.0 s7 proden_tun       0.7220 147.1s
+/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+                BirdSong pll_real  0.0 s7 glwspll_def      0.7120 13.4s
+/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+                BirdSong pll_real  0.0 s7 glwspll_tun      0.7080 199.1s
+/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+                BirdSong pll_real  0.0 s7 rc_def           0.7080 4.1s
+/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+                BirdSong pll_real  0.0 s7 rc_tun           0.7240 153.3s
+/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+                BirdSong pll_real  0.0 s7 cc_def           0.7080 4.2s
+/usr/local/lib/python3.13/dist-packages/sklearn/metrics/_ranking.py:379: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+                BirdSong pll_real  0.0 s7 cc_tun           0.7160 131.2s
+                BirdSong pll_real  0.0 s8 proden_def       0.6560 8.1s
+                BirdSong pll_real  0.0 s8 proden_tun       0.6920 112.2s
+                BirdSong pll_real  0.0 s8 glwspll_def      0.7080 13.2s
+                BirdSong pll_real  0.0 s8 glwspll_tun      0.7340 167.7s
+                BirdSong pll_real  0.0 s8 rc_def           0.7080 4.1s
+                BirdSong pll_real  0.0 s8 rc_tun           0.6780 99.4s
+                BirdSong pll_real  0.0 s8 cc_def           0.7080 4.2s
+                BirdSong pll_real  0.0 s8 cc_tun           0.6900 95.6s
+                BirdSong pll_real  0.0 s9 proden_def       0.6500 8.1s
+                BirdSong pll_real  0.0 s9 proden_tun       0.6680 159.1s
+                BirdSong pll_real  0.0 s9 glwspll_def      0.7200 13.1s
+                BirdSong pll_real  0.0 s9 glwspll_tun      0.7480 198.6s
+                BirdSong pll_real  0.0 s9 rc_def           0.7160 4.1s
+                BirdSong pll_real  0.0 s9 rc_tun           0.6740 174.3s
+                BirdSong pll_real  0.0 s9 cc_def           0.7160 4.2s
+                BirdSong pll_real  0.0 s9 cc_tun           0.6780 148.3s

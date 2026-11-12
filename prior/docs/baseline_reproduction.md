@@ -1,0 +1,97 @@
+# Tái hiện số công bố của baseline (G6)
+
+Theo [02 §G6](../../research-handbook/02_QUY_TRINH_CONG_KIEM_DUYET.md) và [G6_PLAN](../G6/G6_PLAN.md) Mục 3.
+
+**Tiêu chí (ghi trước khi chạy, 26/10/2026):** đạt nếu số tái hiện cách số công bố ≤ 1 điểm % (accuracy hoặc AUC), hoặc nằm trong 1 độ lệch chuẩn mà bài công bố hay đo được qua các lần lặp — lấy ngưỡng rộng hơn. Không đạt thì xếp loại: (a) có nguyên nhân rõ; (b) chưa rõ nguyên nhân.
+
+**Ngoại lệ về dữ liệu:** nếu dataset gốc của baseline trùng tập đánh giá của dự án (Lost, MSRCv2, BirdSong) thì tái hiện trên một dataset khác trong cùng bài.
+
+## Bảng tổng hợp
+
+| Baseline | Code | Dataset tái hiện | Metric | Công bố | Tái hiện | Kết luận |
+|---|---|---|---|---|---|---|
+| PRODEN | dự án (`PLLNet`), loss chính thức; sinh nhãn bằng `partialize` chính thức | Yeast, Texture, Dermatology, Synthetic Control (UCI, Bảng 1 của bài; binomial q = 0,1 và 0,7; tuyến tính; 5 lần chia 90/10) | accuracy % | 59,05 / 55,15; 99,64 / 99,33; 96,16 / 95,34; 98,33 / 95,00 | 57,09 / 54,59; 99,78 / 99,23; 97,30 / 95,68; 98,33 / 96,33 | **Đạt 8/8** (G6 lượt 8, 28/10/2026) |
+| RC | dự án (`PLLNet`) | Texture, Yeast, Dermatology, Har (UCI, Bảng 3; tập ứng viên đều; tuyến tính; 10 lần chia 90/10) | accuracy % | 99,24; 59,89; 99,41; 98,03 | 99,56; 54,26 (chọn lại mỗi lần chia: 56,76); 94,59 (94,86); 97,71 | Texture, Har **đạt**. Yeast, Dermatology **lệch, xếp loại (b)** (29/10/2026, sau lượt 9): đổi cách chọn siêu tham số chỉ thu hẹp chênh lệch ở Yeast (−5,6 → −3,1), không ở Dermatology. Nghi khác bản dữ liệu hoặc tiền xử lý: với 37 mẫu test ở Dermatology, một lỗi là 2,7 điểm, nên độ lệch chuẩn công bố khoảng 1 điểm qua 10 lần chia ngẫu nhiên là khó có với cùng cách chia |
+| CC | dự án (`PLLNet`) | như RC | accuracy % | 98,02; 59,97; 99,73; 98,10 | 99,55; 54,26 (55,82); 94,86 (94,59); 97,78 | như RC: Texture, Har **đạt**; Yeast, Dermatology **lệch, (b)**. CC là đối thủ chính của H4; bài ghi rõ chênh lệch này. Bằng chứng còn lại cho bản cài: đạt ở Texture và Har, và PRODEN dùng chung vòng huấn luyện đạt 8/8 |
+| GLWS/ILL (LLP, PLL, PU, nhãn nhiễu, SSL) | dự án; loss viết lại theo kho chính thức (E-step chính xác, deviation 5) | — | — | chỉ có trên ảnh (LeNet, WRN, ResNet, tăng cường mạnh) | không chạy | **Chưa tái hiện số, xếp loại (a)**: số công bố gắn với mạng ảnh và tăng cường ba góc nhìn, không chuyển được sang dữ liệu bảng. Thay bằng đối chiếu từng phép tính với code chính thức (test: E-step khớp vét cạn; số hạng entropy khớp công thức kho) |
+| LLP-VAT, DLLP | dự án; `ProportionLoss`, `VATLoss` chép nguyên văn từ kho chính thức (MIT) | — | — | CIFAR-10/100, SVHN với ResNet | không chạy | **Chưa tái hiện số, (a)**: chi phí GPU lớn và mạng ảnh; loss trùng nguyên văn kho (đã `diff`) |
+| EasyLLP | dự án theo Eq. 3 của bài (không có code chính thức) | — | — | số chỉ có trong hình | không chạy | **Chưa tái hiện số, (a)**: bài không có bảng số |
+| nnPU, uPU, VPU, VIME (bối cảnh phụ) | dự án; VPU theo kho chính thức (MIT) | — | — | MNIST, CIFAR, ảnh | không chạy | **Chưa tái hiện số, (a)**: bối cảnh phụ; ưu tiên ngân sách cho bối cảnh chính |
+| SAR-EM | chính thức (`sarpu`, commit 6e4fc3d8) | Breast Cancer, Mushroom (bài gốc, 4 thuộc tính propensity, 25 thí nghiệm) | ROC-AUC, MSE của f | Mushroom 1,000 / 0,103; Breast Cancer 0,983 / 0,058 | Mushroom 1,000 / 0,098; Breast Cancer 0,994 / 0,096 | Mushroom **đạt**; Breast Cancer **lệch**, xếp loại **(b)** (26/10/2026, sau G6 lượt 2): đã khoanh vùng ở phần thiết lập dữ liệu và đánh giá dùng chung, không ở thuật toán — Naive (code gốc) lệch cùng chiều; đổi tập thuộc tính không giải thích được. Bản bọc trùng code gốc tuyệt đối (100/100 thí nghiệm) |
+
+## SAR-EM (Bekker, Robberechts & Davis, ECML-PKDD 2019)
+
+- **Script:** `G4/code/g6_reproduce_sarem.py`. Dùng đúng code tiền xử lý trong notebook của kho gốc, đúng `generate_extended_data`, `label_data` (cơ chế `simple_0.2_0.8`) và `pu_learn_sar_em`.
+- **Thích ứng để chạy được trên thư viện mới.** Không đổi hành vi thuật toán:
+  1. `LogisticRegressionPU` của gói gọi `LogisticRegression(multi_class=...)`, tham số đã bị bỏ khỏi scikit-learn mới. Dự án truyền một lớp tương đương vào `pu_learn_sar_em`: cùng cách đánh trọng số propensity của `BasePU`, cùng `C = 1`, solver liblinear.
+  2. `generate_attributes` gán mảng 1 phần tử vào một ô; numpy ≥ 2 báo lỗi. Dự án thay bằng hàm y hệt nhưng lấy phần tử `[0]`, nên cùng dãy số ngẫu nhiên.
+  3. Notebook dùng `np.NaN` (đã bị bỏ ở numpy 2) và gán số vào cột chữ (pandas 3 không cho). Dự án đặt `np.NaN = np.nan` và tắt kiểu chuỗi mới của pandas.
+- **Kiểm bản bọc của dự án** (`icgibbs.baselines_sar.SAREM`): trên cùng dữ liệu, bản bọc cho đúng cùng AUC với lời gọi trực tiếp code chính thức (chênh 0 trên dữ liệu thử). Script in lại chênh lệch này trên dữ liệu thật.
+- **Kiểm trên dữ liệu tổng hợp** (`tests/test_baselines_g6.py`):
+  - Khi thuộc tính propensity tách khỏi thuộc tính phân loại (thiết lập của bài): AUC của SAR-EM cách oracle ≤ 0,01 và MSE của propensity < 0,02.
+  - Khi z vừa là feature vừa quyết định propensity (thiết lập PU-SAR của dự án): SAR-EM hơn bộ ngây thơ > 0,05 AUC nhưng không đạt oracle (0,82 so với 0,85). Đây là giới hạn định danh đã biết của mô hình SAR khi hai phần dùng chung thuộc tính.
+- **Số công bố cần so** (Hình 1 của arXiv 1809.03207v4, 4 thuộc tính propensity):
+
+  | Dataset | Phương pháp | ROC-AUC | MSE của f |
+  |---|---|---|---|
+  | Breast Cancer | SAR-EM | 0,983 | 0,058 |
+  | Breast Cancer | Naive | 0,992 | 0,127 |
+  | Breast Cancer | Supervised | 0,994 | 0,028 |
+  | Mushroom | SAR-EM | 1,000 | 0,103 |
+  | Mushroom | Naive | 1,000 | 0,173 |
+  | Mushroom | Supervised | 1,000 | 0,000 |
+
+  Các số này lấy từ bản trích văn bản của hình. Cách gán cột theo thứ tự (Naive, SAR-EM, KM2, TIcE, Sup.) là suy luận của em, vì Supervised phải tốt nhất. **Cần thầy xác nhận trên hình gốc** trước khi kết luận.
+- **Kết quả (26/10/2026, Kaggle, `G4/pilot/g6_sarem_reproduction.csv`):** chi tiết ở [G6_T1_SAREM_REPORT](../G6/G6_T1_SAREM_REPORT.md) Mục 2.
+  - Bản bọc của dự án cho đúng cùng kết quả với code chính thức (chênh AUC = 0 trên 50/50 thí nghiệm).
+  - Mushroom đạt ở mọi metric của SAR-EM.
+  - Breast Cancer: SAR-EM có AUC 0,994 so với 0,983 công bố (cao hơn), MSE 0,096 so với 0,058. Naive cũng lệch cùng chiều về MSE ở cả hai dataset.
+  - Giả thuyết đang kiểm: (1) tập thuộc tính của bộ phân loại — chạy lại với `--cls_mode orig_plus1` và `all`; (2) cách gán cột trong Hình 1 — cần thầy xác nhận trên hình gốc.
+- **Kết quả kiểm giả thuyết 1 (G6 lượt 2, `G4/pilot/g6r2_sarem_repro_*.csv`):** `orig_plus1`: SAR-EM 0,994 / 0,098, Naive 0,990 / 0,160; `all`: SAR-EM 0,988 / 0,097 (AUC đạt), Naive 0,980 / 0,158 (AUC lệch). Không chế độ nào tái hiện cả bốn số; MSE của f gần như không đổi theo tập thuộc tính. **Giả thuyết 1 bị bác.** Xếp loại cuối: **(b)**, chưa rõ nguyên nhân nhưng đã khoanh vùng ngoài thuật toán SAR-EM (Naive, chỉ là hồi quy logistic trên s, lệch cùng chiều). SAR-EM vẫn dùng được; bài ghi rõ chênh lệch. Chi tiết: [G6_ROUND2_REPORT](../G6/G6_ROUND2_REPORT.md) Mục 4.
+
+## GLWS cho LLP — khác biệt giữa bài và code chính thức (phát hiện G6, 26/10/2026)
+- Bài GLWS mô tả E-step là forward-backward trên NFA, tức hậu nghiệm của nhãn từng mẫu khi biết số đếm của túi.
+- Dự án tính đúng đại lượng đó bằng quy hoạch động theo số đếm, và kiểm bằng liệt kê mọi cách gán nhãn (`tests/test_baselines_ext.py::test_glws_estep_is_exact_posterior`).
+- So với hàm `create_proportion_graph` của kho chính thức (commit f577553):
+  - Đại lượng log P(đếm = c | đếm ≤ c) **khớp số**.
+  - **Nhãn giả không khớp**, và tổng theo túi không bằng c. Ví dụ túi 5 mẫu, c = 1: tổng chỉ 0,45; túi 4 mẫu, c = 2: tổng 1,59. Vậy hàm của kho không trả về hậu nghiệm chính xác.
+- Quyết định: baseline GLWS của dự án dùng hậu nghiệm chính xác (bản đúng theo bài, và là bản mạnh hơn). Ghi ở giao thức Mục 11.
+- Chưa tái hiện số công bố của GLWS: các thí nghiệm LLP của bài dùng CIFAR với ResNet, rất tốn GPU. Sẽ chọn cấu hình nhỏ nhất của bài để tái hiện ở lượt sau.
+
+## LLP-VAT, DLLP
+- Hàm `ProportionLoss` và `VATLoss` sao chép nguyên văn từ kho chính thức (MIT, `icgibbs/third_party/llp_vat_losses.py`; đã so `diff` với bản gốc).
+- Proportion loss viết dạng vector, vì phép kiểm `simplex.check` của kho chỉ nhận vector một chiều ở torch mới. Test kiểm khớp số với cách gọi từng túi.
+- Ramp-up của trọng số nhất quán dùng cùng công thức exp(−5(1−t)²) như kho (tệp ramps.py của kho có giấy phép CC BY-NC nên không sao chép).
+- Chưa tái hiện số công bố (CIFAR).
+
+## PRODEN
+- Dùng đúng hàm `partial_loss` của kho chính thức, nạp từ kho đã ghim commit 637b531 (kho không có tệp giấy phép nên không sao chép).
+- Dùng SGD momentum 0,9 như `main.py` của kho (cấu hình mặc định).
+- **Phát hiện ở G6 lượt 2:** trên tập phát triển PLL, bản này chỉ đạt 0,573 accuracy (mặc định) và 0,716 (tune), thấp hơn bản Adam cũ của dự án (0,740) — SGD với lr ≤ 1e-2 chưa hội tụ trên dữ liệu bảng nhỏ. Từ lượt 3, không gian tune có thêm bộ tối ưu ∈ {SGD, Adam} (docs/tuning_spaces.md); mặc định vẫn là SGD như kho chính thức.
+- Bản dự phòng cài lại cho kết quả trùng với hàm chính thức (test `test_proden_official_loss_matches_reimplementation`).
+- Chưa tái hiện số công bố: bài dùng MNIST và các bộ tương tự, sẽ làm ở lượt sau.
+
+## PRODEN, RC, CC trên UCI (kế hoạch, G6 lượt 8; `G4/code/g6_reproduce_pll_uci.py`)
+- Bài PRODEN chỉ có số MNIST trong hình, nhưng có **Bảng 1 (UCI, binomial q = 0,1 / 0,7, mô hình tuyến tính)**: Yeast 59,05 ± 4,66 / 55,15 ± 3,87; Texture 99,64 ± 0,16 / 99,33 ± 0,32; Dermatology 96,16 ± 3,26 / 95,34 ± 3,15; Synthetic Control 98,33 ± 1,32 / 95,00 ± 4,75. Siêu tham số từng bộ lấy từ `parameter_settings.txt` của kho (SGD momentum 0,9; 500 epoch; trung bình accuracy 10 epoch cuối).
+- Bài RC/CC: **Bảng 3 (UCI, tập ứng viên đều, mô hình tuyến tính)**: RC / CC — Texture 99,24 ± 0,14 / 98,02 ± 2,91; Yeast 59,89 ± 1,27 / 59,97 ± 1,57; Dermatology 99,41 ± 1,00 / 99,73 ± 0,85; Har 98,03 ± 0,09 / 98,10 ± 0,18. Adam, full batch, 2000 epoch; lr và weight decay trong {1e-6, …, 1e-1} chọn trên 10% validation; 10 lần chia 90/10.
+- Không bộ nào trùng tập phát triển hay tập đánh giá. 20Newsgroups (bản 300 chiều) chưa tìm được trên OpenML nên bỏ. Chỗ bài không nói rõ được chọn và ghi ở đầu script.
+
+## GLWS/ILL cho PLL — thiếu số hạng của bản chính thức (phát hiện G6, 27/10/2026)
+- Mọi config PLL của kho (20 tệp) bật `average_entropy_loss: True`; bản cài của dự án thiếu số hạng này. Đã thêm đúng công thức (test khớp từng phép tính), mặc định bật, tune bật/tắt; chạy lại ở G6 lượt 8 (giao thức §11, deviation 13).
+- Tái hiện số công bố: mọi thí nghiệm PLL của bài dùng ảnh (LeNet cho MNIST/Fashion-MNIST, WRN-34-10 cho CIFAR) với tăng cường mạnh ba góc nhìn; bản cài cho dữ liệu bảng dùng một góc nhìn (deviation 9). Đề xuất: kiểm tương đương từng phép tính với code chính thức thay cho tái hiện số (chờ quyết).
+
+## EasyLLP, RC, CC
+- Không có code chính thức nên cài theo bài: EasyLLP theo Eq. 3; RC và CC theo Feng et al. 2020.
+- Số công bố để tái hiện:
+  - EasyLLP: accuracy trên MNIST chẵn/lẻ với hồi quy logistic, nhiều cỡ túi.
+  - RC, CC: một trong các bộ chuẩn của bài (MNIST, Fashion-MNIST, Kuzushiji-MNIST); bảng cụ thể sẽ chọn khi làm. Không dùng Lost, MSRCv2, BirdSong vì đó là tập đánh giá RQ5.
+- Lượt tái hiện này cần MNIST, sẽ làm sau lượt chọn đối thủ chính.
+
+## Baseline phụ thêm ở G6 lượt 4 (26/10/2026) — `icgibbs/baselines_secondary.py`
+- **GLWS cho PU** (kho GLWS, `pos_ulb/imp_pos_ulb.py`): CE trên mẫu dương có nhãn + CE với nhãn giả của batch không nhãn, coi batch là một túi có số dương = tiên nghiệm × cỡ batch. E-step dùng hậu nghiệm chính xác (forward–backward O(K²), `count_posterior`, khớp vét cạn và khớp DP autograd tới 1e-15) thay cho `create_proportion_graph`, cùng lý do như GLWS cho LLP (giao thức §11, deviation 5). Tập không nhãn gồm toàn bộ dữ liệu như `include_lb_to_ulb=True` của kho.
+- **VPU** (kho chính thức HC-Feynman/vpu, MIT): loss biến phân và điều chuẩn MixUp viết lại đúng theo `vpu.py` (log Φ từ log-softmax, mục tiêu MixUp λΦ(x) + (1 − λ)·1, Adam betas (0,5; 0,99), lr giảm một nửa mỗi 20 epoch). Tập "x" gồm cả mẫu dương có nhãn như `x_loader` của kho.
+- **ILL** (kho GLWS/ILL): nhãn nhiễu theo `noisy_label/imp_noisy_label.py` (noise_loss + em_loss + con_loss + cân bằng entropy; ma trận nhiễu khởi tạo đơn vị, chuẩn hoá hàng và cột); SSL theo `semisup/imp_semisup.py` (căn phân phối EMA 0,999, giữ top-3, cân bằng entropy). **Khác kho:** dữ liệu bảng không có phép tăng cường chuẩn nên góc nhìn "yếu" và "mạnh" là cùng một x; khi đó con_loss của ILL nhãn nhiễu trở thành một số hạng giống tối thiểu hoá entropy.
+- **VIME** (Yoon et al., NeurIPS 2020): cài lại theo bài (kho TF1 không có tệp giấy phép). Tự giám sát: encoder một lớp ẩn cỡ d, ước lượng mặt nạ (BCE) và khôi phục feature (α·MSE), mặt nạ Bernoulli(p_m), giá trị thay thế lấy từ phân phối biên (hoán vị từng cột), RMSprop, 10 epoch. Bán giám sát: bộ dự đoán MLP trên encoder cố định, CE có nhãn + β·phương sai dự đoán qua K = 3 bản che, Adam, 1.000 vòng lặp, dừng sớm theo loss trên 10% phần có nhãn. *Ghi nhận ở G6 lượt 4:* với bảng ít feature, encoder cỡ d với ReLU (đúng kiến trúc của kho) làm mất thông tin — banknote (d = 4) chỉ đạt AUC 0,93 trong khi mọi phương pháp khác đạt 1,00; tune không đổi kết quả. Nhiều khả năng đây là giới hạn của kiến trúc gốc chứ không phải lỗi cài đặt, nhưng chưa đối chiếu bằng cách chạy code TF1 chính thức; bài sẽ nêu khi báo cáo SSL.
+- **In-Context PU (PUICL, arXiv 2605.05591):** bài trên arXiv không dẫn kho công khai; liên kết ẩn danh `anonymous.4open.science/r/puicl-58B1` không truy cập được từ môi trường làm việc (26/10/2026). Theo giao thức: ghi là **chưa tái hiện được**; nếu thầy mở được liên kết và có trọng số pretrain thì bổ sung trước G7.
+- Chưa tái hiện số công bố của các baseline phụ này trên dataset gốc (ảnh); việc đó thuộc T3 cùng các baseline chính.
+
