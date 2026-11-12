@@ -17,7 +17,7 @@ pip install numpy scipy scikit-learn pandas torch pytest
 python -m pytest -q tests        # CPU, khoảng 10 phút
 ```
 
-Lần chạy ngày 12/11/2026 trong kho này: 167 qua, 5 bỏ qua (thiếu kho GLWS và PRODEN, gói `sarpu`: các thứ chỉ nạp lúc chạy trên Kaggle).
+Lần chạy đầy đủ ngày 12/11/2026 trong kho này: 166 qua, 6 bỏ qua. Năm test bỏ qua vì thiếu kho GLWS, PRODEN và gói `sarpu` (chỉ nạp lúc chạy trên Kaggle); test thứ sáu bỏ qua vì đường dẫn cũ, đã sửa và qua khi chạy lại riêng. Lần chạy đầy đủ kế tiếp phải cho 167 qua, 5 bỏ qua.
 
 ## Chạy trên Kaggle
 
