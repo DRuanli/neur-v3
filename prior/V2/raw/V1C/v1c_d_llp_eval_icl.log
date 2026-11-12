@@ -1,0 +1,61 @@
+run_g7 · part=v0 · split=eval · backend=tabicl_v2 · code=py-7c64c03c008c · config=d4a16b0e8b9a3b72
+
+=== 3 kr-vs-kp: n=3196 (loại trùng 0), d=36, C=2, sha256=8020e6fe6fb1
+
+=== 29 credit-approval: n=690 (loại trùng 0), d=15, C=2, sha256=07a2a892f2fb
+
+=== 44 spambase: n=4210 (loại trùng 391), d=57, C=2, sha256=5d911e5155f2
+
+=== 1049 pc4: n=1344 (loại trùng 114), d=37, C=2, sha256=d6fffecdc8d3
+
+=== 1489 phoneme: n=5395 (loại trùng 9), d=5, C=2, sha256=66da5602e68d
+
+=== 1494 qsar-biodeg: n=1052 (loại trùng 3), d=41, C=2, sha256=f9b0c445f990
+INFO: You are downloading 'tabicl-classifier-v2-20260212.ckpt', the latest best-performing version, used in our TabICLv2 paper.
+
+Checkpoint 'tabicl-classifier-v2-20260212.ckpt' not cached.
+ Downloading from Hugging Face Hub (jingang/TabICL).
+
+             qsar-biodeg llp        8 s1 base_start       0.9043 77.1s
+             qsar-biodeg llp        8 s1 gibbs_init_base  0.8986 81.0s
+             qsar-biodeg llp        8 s1 gibbs_init_cold  0.8544 3.5s
+             qsar-biodeg llp        8 s1 gibbs_ms         0.8985 0.0s
+             qsar-biodeg llp        8 s2 gibbs_init_warm  0.8711 10.1s
+             qsar-biodeg llp        8 s2 base_start       0.8679 67.2s
+             qsar-biodeg llp        8 s2 gibbs_init_base  0.9102 71.0s
+             qsar-biodeg llp        8 s2 gibbs_init_cold  0.7532 3.9s
+             qsar-biodeg llp        8 s2 gibbs_ms         0.9102 0.0s
+
+=== 23381 dresses-sales: n=500 (loại trùng 0), d=12, C=2, sha256=7c93505ceeb1
+           dresses-sales llp        8 s0 gibbs_init_warm  0.6198 4.8s
+           dresses-sales llp        8 s0 base_start       0.5581 36.8s
+           dresses-sales llp        8 s0 gibbs_init_base  0.6267 38.5s
+           dresses-sales llp        8 s0 gibbs_init_cold  0.4244 1.7s
+           dresses-sales llp        8 s0 gibbs_ms         0.6267 0.0s
+           dresses-sales llp        8 s1 gibbs_init_warm  0.6035 5.8s
+           dresses-sales llp        8 s1 base_start       0.6305 38.5s
+           dresses-sales llp        8 s1 gibbs_init_base  0.6752 40.2s
+           dresses-sales llp        8 s1 gibbs_init_cold  0.5990 1.6s
+           dresses-sales llp        8 s1 gibbs_ms         0.6752 0.0s
+           dresses-sales llp        8 s2 gibbs_init_warm  0.5127 5.7s
+           dresses-sales llp        8 s2 base_start       0.5123 41.5s
+           dresses-sales llp        8 s2 gibbs_init_base  0.5800 43.1s
+           dresses-sales llp        8 s2 gibbs_init_cold  0.5059 1.5s
+           dresses-sales llp        8 s2 gibbs_ms         0.5127 0.0s
+
+=== 38 sick: n=3711 (loại trùng 61), d=29, C=2, sha256=dfeecb8a65e4
+                    sick llp        8 s0 gibbs_init_warm  0.9964 31.0s
+                    sick llp        8 s0 base_start       0.9343 242.1s
+                    sick llp        8 s0 gibbs_init_base  0.9833 246.8s
+                    sick llp        8 s0 gibbs_init_cold  0.9860 4.4s
+                    sick llp        8 s0 gibbs_ms         0.9964 0.0s
+                    sick llp        8 s1 gibbs_init_warm  0.9923 32.4s
+                    sick llp        8 s1 base_start       0.9286 276.1s
+                    sick llp        8 s1 gibbs_init_base  0.9738 281.1s
+                    sick llp        8 s1 gibbs_init_cold  0.9510 4.7s
+                    sick llp        8 s1 gibbs_ms         0.9923 0.0s
+                    sick llp        8 s2 gibbs_init_warm  0.9962 30.2s
+                    sick llp        8 s2 base_start       0.9192 278.4s
+                    sick llp        8 s2 gibbs_init_base  0.9963 282.7s
+                    sick llp        8 s2 gibbs_init_cold  0.9493 4.1s
+                    sick llp        8 s2 gibbs_ms         0.9963 0.0s

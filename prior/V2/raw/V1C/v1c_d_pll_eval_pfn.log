@@ -1,0 +1,79 @@
+run_g7 · part=v0 · split=eval · backend=tabpfn_v2 · code=py-7c64c03c008c · config=fe19455c8ef838d3
+
+=== 11 balance-scale: n=625 (loại trùng 0), d=4, C=3, sha256=519b566cf809
+
+=== 46 splice: n=3006 (loại trùng 184), d=60, C=3, sha256=eecf32842d81
+
+=== 182 satimage: n=6430 (loại trùng 0), d=36, C=6, sha256=93d8888cbf9a
+
+=== 188 eucalyptus: n=736 (loại trùng 0), d=19, C=5, sha256=254b108291a9
+
+=== 458 analcatdata_authorship: n=841 (loại trùng 0), d=70, C=4, sha256=81996155218e
+
+=== 469 analcatdata_dmft: n=556 (loại trùng 241), d=4, C=6, sha256=a0edb9ad7403
+
+=== 1475 first-order-theorem-proving: n=5636 (loại trùng 482), d=51, C=6, sha256=89a1739c5b81
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  first-order-theorem-pr pll      0.6 s0 gibbs_init_cold  0.4122 68.5s
+  first-order-theorem-pr pll      0.6 s0 gibbs_ms         0.4636 0.0s
+  first-order-theorem-pr pll      0.6 s1 gibbs_init_warm  0.4122 79.0s
+  first-order-theorem-pr pll      0.6 s1 base_start       0.4394 246.0s
+  first-order-theorem-pr pll      0.6 s1 gibbs_init_base  0.4341 313.9s
+  first-order-theorem-pr pll      0.6 s1 gibbs_init_cold  0.4122 68.9s
+  first-order-theorem-pr pll      0.6 s1 gibbs_ms         0.4341 0.0s
+  first-order-theorem-pr pll      0.6 s2 gibbs_init_warm  0.4122 85.8s
+  first-order-theorem-pr pll      0.6 s2 base_start       0.4607 247.8s
+  first-order-theorem-pr pll      0.6 s2 gibbs_init_base  0.4654 316.2s
+  first-order-theorem-pr pll      0.6 s2 gibbs_init_cold  0.4140 69.4s
+  first-order-theorem-pr pll      0.6 s2 gibbs_ms         0.4654 0.0s
+
+=== 1497 wall-robot-navigation: n=5456 (loại trùng 0), d=24, C=4, sha256=61944881f33d
+   wall-robot-navigation pll      0.6 s0 gibbs_init_warm  0.9676 40.5s
+   wall-robot-navigation pll      0.6 s0 base_start       0.8876 178.4s
+   wall-robot-navigation pll      0.6 s0 gibbs_init_base  0.9658 213.7s
+   wall-robot-navigation pll      0.6 s0 gibbs_init_cold  0.9664 33.0s
+   wall-robot-navigation pll      0.6 s0 gibbs_ms         0.9658 0.0s
+   wall-robot-navigation pll      0.6 s1 gibbs_init_warm  0.9701 39.9s
+   wall-robot-navigation pll      0.6 s1 base_start       0.8674 238.5s
+   wall-robot-navigation pll      0.6 s1 gibbs_init_base  0.9762 272.3s
+   wall-robot-navigation pll      0.6 s1 gibbs_init_cold  0.9731 31.8s
+   wall-robot-navigation pll      0.6 s1 gibbs_ms         0.9762 0.0s
+   wall-robot-navigation pll      0.6 s2 gibbs_init_warm  0.9578 40.4s
+   wall-robot-navigation pll      0.6 s2 base_start       0.8748 235.2s
+   wall-robot-navigation pll      0.6 s2 gibbs_init_base  0.9756 270.8s
+   wall-robot-navigation pll      0.6 s2 gibbs_init_cold  0.9548 32.6s
+   wall-robot-navigation pll      0.6 s2 gibbs_ms         0.9756 0.0s
+
+=== 40975 car: n=1728 (loại trùng 0), d=6, C=4, sha256=172f09c22188
+                     car pll      0.6 s0 gibbs_init_warm  0.8170 5.6s
+                     car pll      0.6 s0 base_start       0.9383 47.4s
+                     car pll      0.6 s0 gibbs_init_base  0.9133 53.6s
+                     car pll      0.6 s0 gibbs_init_cold  0.8439 7.3s
+                     car pll      0.6 s0 gibbs_ms         0.9133 0.0s
+                     car pll      0.6 s1 gibbs_init_warm  0.7784 8.5s
+                     car pll      0.6 s1 base_start       0.9056 83.9s
+                     car pll      0.6 s1 gibbs_init_base  0.8998 90.0s
+                     car pll      0.6 s1 gibbs_init_cold  0.7784 7.9s
+                     car pll      0.6 s1 gibbs_ms         0.8998 0.0s
+                     car pll      0.6 s2 gibbs_init_warm  0.7669 8.2s
+                     car pll      0.6 s2 base_start       0.9634 66.8s
+                     car pll      0.6 s2 gibbs_init_base  0.9229 72.3s
+                     car pll      0.6 s2 gibbs_init_cold  0.7630 5.1s
+                     car pll      0.6 s2 gibbs_ms         0.9229 0.0s
+
+=== 40982 steel-plates-fault: n=1941 (loại trùng 0), d=27, C=7, sha256=a308bbebe29b
+      steel-plates-fault pll      0.6 s0 gibbs_init_warm  0.5420 24.3s
+      steel-plates-fault pll      0.6 s0 base_start       0.6672 63.9s
+      steel-plates-fault pll      0.6 s0 gibbs_init_base  0.7393 87.1s
+      steel-plates-fault pll      0.6 s0 gibbs_init_cold  0.5798 24.5s
+      steel-plates-fault pll      0.6 s0 gibbs_ms         0.7393 0.0s
+      steel-plates-fault pll      0.6 s1 gibbs_init_warm  0.4786 26.1s
+      steel-plates-fault pll      0.6 s1 base_start       0.6449 73.5s
+      steel-plates-fault pll      0.6 s1 gibbs_init_base  0.7358 96.4s
+      steel-plates-fault pll      0.6 s1 gibbs_init_cold  0.4528 23.3s
+      steel-plates-fault pll      0.6 s1 gibbs_ms         0.7358 0.0s
+      steel-plates-fault pll      0.6 s2 gibbs_init_warm  0.5111 24.9s
+      steel-plates-fault pll      0.6 s2 base_start       0.7153 74.8s
+      steel-plates-fault pll      0.6 s2 gibbs_init_base  0.7136 97.3s
+      steel-plates-fault pll      0.6 s2 gibbs_init_cold  0.5163 24.0s
+      steel-plates-fault pll      0.6 s2 gibbs_ms         0.7136 0.0s

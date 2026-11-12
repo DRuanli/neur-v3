@@ -1,0 +1,112 @@
+{
+ "choice": {
+  "per_backend": {
+   "tabpfn_v3": {
+    "valid": true,
+    "no_error": true,
+    "max_abs_diff": 0.0,
+    "med_sec_n2000": {
+     "2": 0.2515,
+     "10": 0.2478
+    }
+   },
+   "tabpfn_v3_5": {
+    "valid": true,
+    "no_error": true,
+    "max_abs_diff": 0.0,
+    "med_sec_n2000": {
+     "2": 0.7681,
+     "10": 0.772
+    }
+   }
+  },
+  "ratio_v35_over_v3": 3.0847456022541104,
+  "chosen": "tabpfn_v3"
+ },
+ "P11": {
+  "n_pass_of_4": {
+   "tabdpt": 2,
+   "tabicl_v2": 4,
+   "tabpfn_v2": 0,
+   "tabpfn_v3": 0,
+   "tabpfn_v3_5": 1
+  },
+  "chosen": "tabpfn_v3",
+  "verdict": "SAI",
+  "consistency_check": {
+   "tabpfn_v2_fails_ge3": true,
+   "tabicl_v2_passes_ge3": true
+  }
+ },
+ "P8": {
+  "median_abs_err_chain": 0.015641954517802592,
+  "n_cells": 234,
+  "verdict": "ĐÚNG"
+ },
+ "P9": {
+  "n_cells": 234,
+  "median_chain": 0.015641954517802592,
+  "median_uniform": 0.07264832552473766,
+  "verdict": "ĐÚNG"
+ },
+ "P15": {
+  "AUC_s1_T1": 0.4488168724279835,
+  "AUC_s1_T2": 0.5067460317460317,
+  "AUC_s2_T1": 0.3827160493827161,
+  "AUC_s2_T2": 0.3996031746031746,
+  "AUC_s1_T1_tabicl_v2": 0.4923747276688453,
+  "AUC_s1_T1_tabpfn_v2": 0.36772486772486773,
+  "n_cells": 234,
+  "verdict": "SAI"
+ },
+ "P12": {
+  "groups": [
+   {
+    "backend": "tabicl_v2",
+    "setting": "llp",
+    "n": 22.0,
+    "G_A1e": 0.0025,
+    "G_A1": 0.0051,
+    "R_A1e": 1.0
+   },
+   {
+    "backend": "tabicl_v2",
+    "setting": "pll",
+    "n": 10.0,
+    "G_A1e": -0.001,
+    "G_A1": 0.0021,
+    "R_A1e": 0.0
+   },
+   {
+    "backend": "tabpfn_v2",
+    "setting": "llp",
+    "n": 10.0,
+    "G_A1e": -0.0044,
+    "G_A1": 0.0025,
+    "R_A1e": 1.0
+   },
+   {
+    "backend": "tabpfn_v2",
+    "setting": "pll",
+    "n": 13.0,
+    "G_A1e": -0.0091,
+    "G_A1": 0.0043,
+    "R_A1e": 4.0
+   }
+  ],
+  "total_R": 6,
+  "verdict": "SAI",
+  "n_groups": 4
+ },
+ "P14": {
+  "n_datasets": 4,
+  "n_pass": 1,
+  "verdict": "SAI"
+ },
+ "P13": {
+  "n_datasets": 13,
+  "mean_X_minus_best": -0.007574595830796927,
+  "n_lose_gt_002": 2,
+  "verdict": "ĐÚNG"
+ }
+}
