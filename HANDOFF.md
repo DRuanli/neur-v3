@@ -55,9 +55,9 @@ Số liệu định hướng (thăm dò, 6 dataset, một TFM): tỉ giá đo đ
 
 ## 6. Điều cần biết về code
 
-- `code/` giống hệt `prior/G4/code/` tại thời điểm khởi tạo. Từ đây chỉ sửa `code/`.
+- `code/` lấy từ `prior/G4/code/`; khác biệt duy nhất lúc khởi tạo là đường dẫn trong `tests/test_s2_split.py`. Từ đây chỉ sửa `code/`.
 - Bộ chạy `run_g7.py` có các khoá của bài v2 (`--split s3` chỉ chạy đúng cấu hình Study 3 và phần bổ sung S3B). Bài v3 cần một split mới cho tập phát triển của mình; xem `v3/M2_PILOT_PLAN.md` §9.
-- Bộ test: 167 qua, 5 bỏ qua, trên CPU, ở lần chạy cuối trong kho cũ (commit `b59ef14`).
+- Bộ test chạy trong kho này ngày 12/11/2026: 167 qua, 5 bỏ qua (CPU, khoảng 10 phút). Lần chạy đầy đủ cho 166 qua và 6 bỏ qua vì một test tìm bảng của Study 2 theo đường dẫn của kho cũ; đã sửa đường dẫn và test đó qua khi chạy lại riêng.
 
 ## 7. Ràng buộc
 
