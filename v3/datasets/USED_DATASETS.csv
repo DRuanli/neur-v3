@@ -1,0 +1,84 @@
+openml_id,name,openml_version,kind,role,study,subsample,group_structure_flag
+3,kr-vs-kp,1,binary,confirmatory (used),Study 1,,0
+29,credit-approval,1,binary,confirmatory (used),Study 1,,0
+38,sick,1,binary,confirmatory (used),Study 1,,0
+44,spambase,1,binary,confirmatory (used),Study 1,,0
+50,tic-tac-toe,1,binary,confirmatory (used),Study 1,,0
+1049,pc4,1,binary,confirmatory (used),Study 1,,0
+1489,phoneme,1,binary,confirmatory (used),Study 1,,0
+1494,qsar-biodeg,1,binary,confirmatory (used),Study 1,,0
+6332,cylinder-bands,2,binary,confirmatory (used),Study 1,,0
+23381,dresses-sales,2,binary,confirmatory (used),Study 1,,0
+11,balance-scale,1,multiclass,confirmatory (used),Study 1,,1
+12,mfeat-factors,1,multiclass,confirmatory (used),Study 1,,0
+28,optdigits,1,multiclass,confirmatory (used),Study 1,,0
+46,splice,1,multiclass,confirmatory (used),Study 1,,0
+182,satimage,1,multiclass,confirmatory (used),Study 1,,0
+188,eucalyptus,1,multiclass,confirmatory (used),Study 1,,0
+458,analcatdata_authorship,1,multiclass,confirmatory (used),Study 1,,0
+469,analcatdata_dmft,1,multiclass,confirmatory (used),Study 1,,0
+1475,first-order-theorem-proving,1,multiclass,confirmatory (used),Study 1,,0
+1497,wall-robot-navigation,1,multiclass,confirmatory (used),Study 1,,1
+1501,semeion,1,multiclass,confirmatory (used),Study 1,,0
+40966,MiceProtein,4,multiclass,confirmatory (used),Study 1,,1
+40975,car,3,multiclass,confirmatory (used),Study 1,,1
+40982,steel-plates-fault,3,multiclass,confirmatory (used),Study 1,,0
+24,mushroom,1,binary,confirmatory (used),Study 2,,0
+312,scene,1,binary,confirmatory (used),Study 2,,0
+470,profb,1,binary,confirmatory (used),Study 2,,0
+934,socmob,2,binary,confirmatory (used),Study 2,,0
+40536,SpeedDating,1,binary,confirmatory (used),Study 2,,1
+41143,jasmine,1,binary,confirmatory (used),Study 2,,0
+41145,philippine,1,binary,confirmatory (used),Study 2,,0
+41146,sylvine,1,binary,confirmatory (used),Study 2,,0
+41156,ada,1,binary,confirmatory (used),Study 2,,0
+44130,eye_movements,7,binary,confirmatory (used),Study 2,,1
+45026,heloc,2,binary,confirmatory (used),Study 2,,0
+45039,compas-two-years,5,binary,confirmatory (used),Study 2,,0
+46911,Bank_Customer_Churn,1,binary,confirmatory (used),Study 2,,0
+46927,Fitness_Club,1,binary,confirmatory (used),Study 2,,0
+46930,hazelnut-spread-contaminant-detection,1,binary,confirmatory (used),Study 2,,0
+46938,Is-this-a-good-customer,2,binary,confirmatory (used),Study 2,,0
+46940,Marketing_Campaign,1,binary,confirmatory (used),Study 2,,0
+46969,NATICUSdroid,3,binary,confirmatory (used),Study 2,,0
+181,yeast,1,multiclass,confirmatory (used),Study 2,,0
+375,JapaneseVowels,1,multiclass,confirmatory (used),Study 2,,1
+1466,cardiotocography,1,multiclass,confirmatory (used),Study 2,,0
+1476,gas-drift,1,multiclass,confirmatory (used),Study 2,10000,1
+23380,cjs,3,multiclass,confirmatory (used),Study 2,,1
+40498,wine-quality-white,1,multiclass,confirmatory (used),Study 2,,0
+46906,anneal,18,multiclass,confirmatory (used),Study 2,,0
+46960,students_dropout_and_academic_success,1,multiclass,confirmatory (used),Study 2,,0
+46963,website_phishing,1,multiclass,confirmatory (used),Study 2,,0
+46980,MIC,3,multiclass,confirmatory (used),Study 2,,0
+41163,dilbert,1,multiclass,reserve (never run),Study 2 reserve,,0
+41164,fabert,1,multiclass,reserve (never run),Study 2 reserve,,0
+1038,gina_agnostic,1,binary,confirmatory (used); S3B pending,Study 3,,0
+1046,mozilla4,1,binary,confirmatory (used); S3B pending,Study 3,10000,0
+1467,climate-model-simulation-crashes,1,binary,confirmatory (used); S3B pending,Study 3,,1
+1487,ozone-level-8hr,1,binary,confirmatory (used); S3B pending,Study 3,,1
+4134,Bioresponse,1,binary,confirmatory (used); S3B pending,Study 3,,0
+46916,coil2000_insurance_policies,1,binary,confirmatory (used); S3B pending,Study 3,,0
+46924,E-CommereShippingData,1,binary,confirmatory (used); S3B pending,Study 3,10000,0
+46935,HR_Analytics_Job_Change_of_Data_Scientists,1,binary,confirmatory (used); S3B pending,Study 3,10000,0
+46937,in_vehicle_coupon_recommendation,1,binary,confirmatory (used); S3B pending,Study 3,10000,0
+46947,online_shoppers_intention,1,binary,confirmatory (used); S3B pending,Study 3,10000,0
+46950,polish_companies_bankruptcy,1,binary,confirmatory (used); S3B pending,Study 3,,0
+46956,seismic-bumps,4,binary,confirmatory (used); S3B pending,Study 3,,0
+42,soybean,1,multiclass,confirmatory (used); S3B pending,Study 3,,0
+307,vowel,2,multiclass,confirmatory (used); S3B pending,Study 3,,1
+1468,cnae-9,1,multiclass,confirmatory (used); S3B pending,Study 3,,0
+1478,har,1,multiclass,confirmatory (used); S3B pending,Study 3,10000,1
+1515,micro-mass,2,multiclass,confirmatory (used); S3B pending,Study 3,,0
+4538,GesturePhaseSegmentationProcessed,1,multiclass,confirmatory (used); S3B pending,Study 3,,1
+40499,texture,1,multiclass,confirmatory (used); S3B pending,Study 3,,0
+46933,hiva_agnostic,2,multiclass,confirmatory (used); S3B pending,Study 3,,0
+31,credit-g,,binary,development,v1 dev,,0
+37,diabetes,,binary,development,v1 dev,,0
+1462,banknote-authentication,,binary,development,v1 dev,,0
+1464,blood-transfusion-service-center,,binary,development,v1 dev,,0
+1480,ilpd,,binary,development,v1 dev,,0
+1510,wdbc,,binary,development,v1 dev,,0
+23,cmc,,multiclass,development,v1 dev,,0
+36,segment,,multiclass,development,v1 dev,,0
+54,vehicle,,multiclass,development,v1 dev,,0

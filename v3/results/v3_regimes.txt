@@ -1,0 +1,82 @@
+## Phần khoảng cách naive -> oracle mà MỘT chuỗi lấy lại (thăm dò; ngưỡng dataset: khoảng cách >= 0.02)
+       study    setting  n  naive  best_tuned  chain  oracle   gap  recovered  recovered_best_tuned  n_gap  easy  partial  failed  negative  chain_above_oracle
+S1 TabPFN v2       llp8 10  0.707       0.861  0.855   0.923 0.216      0.684                 0.712     10     6        2       2         0                   0
+S1 TabPFN v2     llp_16 10  0.617       0.822  0.823   0.923 0.306      0.673                 0.670     10     5        3       2         1                   0
+S1 TabPFN v2     llp_32 10  0.553       0.770  0.776   0.923 0.370      0.604                 0.588     10     4        3       3         0                   0
+S1 TabPFN v2  noisy_0.2 10  0.901       0.876  0.888   0.923 0.022     -0.619                -1.174      6     0        0       6         5                   0
+S1 TabPFN v2  noisy_0.4 10  0.857       0.829  0.803   0.923 0.066     -0.818                -0.417      8     0        0       8         8                   0
+S1 TabPFN v2    pll_0.3 14  0.748       0.824  0.847   0.863 0.116      0.859                 0.665     10     8        2       0         0                   0
+S1 TabPFN v2    pll_0.6 14  0.481       0.796  0.661   0.863 0.383      0.471                 0.823     13     7        3       3         1                   0
+S1 TabPFN v2 pu_sar_0.1 10  0.749       0.711  0.756   0.923 0.174      0.038                -0.216     10     0        1       9         4                   0
+S1 TabPFN v2 pu_sar_0.3 10  0.811       0.803  0.827   0.923 0.112      0.149                -0.064      9     0        3       6         3                   0
+S1 TabPFN v2   ssl_0.05 10  0.837       0.797  0.795   0.923 0.086     -0.483                -0.464      9     0        0       9         9                   0
+S1 TabPFN v2    ssl_0.2 10  0.874       0.867  0.858   0.923 0.048     -0.330                -0.147      5     0        0       5         5                   0
+S2 TabICL v2       llp8 18  0.724       0.799  0.840   0.879 0.155      0.749                 0.485     18    14        2       2         0                   1
+S2 TabICL v2    pll_0.3 10  0.840       0.850  0.862   0.870 0.030      0.727                 0.315      6     4        2       0         0                   0
+S2 TabICL v2    pll_0.6 10  0.647       0.839  0.851   0.870 0.224      0.915                 0.861     10     8        2       0         0                   0
+
+## R-C. Tương quan hạng (Spearman) của phần lấy lại theo dataset giữa các mức, Study 1
+  llp8     ~ llp_16  : rho = +0.93  (n = 10)
+  llp8     ~ llp_32  : rho = +0.85  (n = 10)
+  llp_16   ~ llp_32  : rho = +0.83  (n = 10)
+  pll_0.3  ~ pll_0.6 : rho = -0.33  (n = 10)
+
+## LLP, Study 1: phần lấy lại theo dataset
+setting          llp8  llp_16  llp_32
+dataset                              
+credit-approval  0.97    0.96    0.90
+cylinder-bands   0.24    0.18    0.15
+dresses-sales    0.40   -1.09    0.52
+kr-vs-kp         1.00    1.00    0.85
+pc4              0.87    0.83    0.64
+phoneme          0.54    0.40    0.28
+qsar-biodeg      0.78    0.66    0.45
+sick             1.00    0.94    0.83
+spambase         0.97    0.97    0.98
+tic-tac-toe      0.31    0.38    0.08
+
+## R-D. LLP: chuỗi so với điểm xuất phát và so với AUC của oracle (48 cặp dataset x mức; S1 3 mức, S2 1 mức)
+  S1 table_llp8     n=10  rho(xuất phát, chuỗi) = +0.75   chuỗi > xuất phát: 8/10   rho(AUC oracle, chuỗi) = +0.47
+  S1 table_llp_16   n=10  rho(xuất phát, chuỗi) = +0.75   chuỗi > xuất phát: 7/10   rho(AUC oracle, chuỗi) = +0.54
+  S1 table_llp_32   n=10  rho(xuất phát, chuỗi) = +0.62   chuỗi > xuất phát: 6/10   rho(AUC oracle, chuỗi) = +0.16
+  S2 s2_table_llp8  n=18  rho(xuất phát, chuỗi) = +0.65   chuỗi > xuất phát: 16/18   rho(AUC oracle, chuỗi) = +0.50
+                   n  xuat_phat  chuoi
+khoang_xuat_phat                      
+(-9.0, 0.2]       13      -0.16   0.44
+(0.2, 0.4]         6       0.31   0.43
+(0.4, 0.6]         9       0.49   0.50
+(0.6, 9.0]        20       0.80   0.93
+                n  auc_oracle  chuoi_lay_lai  baseline_tot_nhat_lay_lai  auc_con_thieu
+khoang_oracle                                                                         
+(0.0, 0.8]      7       0.647          0.248                      0.576          0.065
+(0.8, 0.9]      7       0.856          0.527                      0.453          0.130
+(0.9, 0.95]    10       0.931          0.702                      0.517          0.083
+(0.95, 1.01]   24       0.986          0.793                      0.768          0.069
+
+## R-E. Tỉ giá quy đổi (thăm dò): n điểm nhãn yếu ~ n_eff nhãn thật; eta_low = dự báo ở giới hạn tín hiệu yếu
+setting                     dataset    n  chain  oracle_same_n  n_eff bound  rate  eta_low
+    llp                     phoneme  500 0.8296         0.9134    500     < 1.000    0.125
+    llp                     phoneme 1000 0.8749         0.9302    500     < 0.500    0.125
+    llp                     phoneme 2000 0.8959         0.9466    500     < 0.250    0.125
+    llp                     phoneme 3776 0.9002         0.9654    500     < 0.132    0.125
+    llp                        sick  500 0.9761         0.9839    500     < 1.000    0.125
+    llp                        sick 1000 0.9855         0.9922    571       0.571    0.125
+    llp                        sick 2000 0.9959         0.9975   1622       0.811    0.125
+    llp                        sick 2597 0.9968         0.9978   1825       0.703    0.125
+    llp                    spambase  500 0.9776         0.9827    500     < 1.000    0.125
+    llp                    spambase 1000 0.9806         0.9852    500     < 0.500    0.125
+    llp                    spambase 2000 0.9838         0.9894    678       0.339    0.125
+    llp                    spambase 2947 0.9860         0.9906   1141       0.387    0.125
+    pll first-order-theorem-proving  500 0.4453         0.4796    500     < 1.000    0.388
+    pll first-order-theorem-proving 1000 0.4735         0.5147    500     < 0.500    0.388
+    pll first-order-theorem-proving 2000 0.5005         0.5561    755       0.378    0.388
+    pll first-order-theorem-proving 3945 0.5216         0.5878   1122       0.285    0.388
+    pll                   optdigits  500 0.9614         0.9670    500     < 1.000    0.249
+    pll                   optdigits 1000 0.9723         0.9782    694       0.694    0.249
+    pll                   optdigits 2000 0.9826         0.9860   1478       0.739    0.249
+    pll                   optdigits 3934 0.9854         0.9887   1896       0.482    0.249
+    pll                    satimage  500 0.8695         0.8872    500     < 1.000    0.388
+    pll                    satimage 1000 0.8923         0.9013    642       0.642    0.388
+    pll                    satimage 2000 0.9050         0.9141   1222       0.611    0.388
+    pll                    satimage 4000 0.9143         0.9316   2016       0.504    0.388
+    pll                    satimage 4501 0.9133         0.9317   1915       0.426    0.388
