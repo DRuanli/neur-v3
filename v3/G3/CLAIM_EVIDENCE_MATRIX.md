@@ -1,5 +1,22 @@
 # Ma trận khẳng định – bằng chứng của bài v3
 
+## Bản 3 (13/11/2026): hướng thuật toán SCI
+
+| Mã | Khẳng định (dạng sẽ viết) | Bằng chứng thăm dò | Bằng chứng xác nhận | Trạng thái |
+|---|---|---|---|---|
+| D1 | SCI-FT một lượt đạt ít nhất bằng X ở PLL, với dưới 1% số lần gọi TFM | — | — | chưa có |
+| D2 | SCI-FT hơn baseline tốt nhất từng loại nhãn yếu cấp mẫu và trên PLL thật | — | — | chưa có |
+| D3 | SCI không phụ thuộc điểm xuất phát | — | — | chưa có |
+| D4 | T1, T2 (và T3) có chứng minh đã rà | — | — | chưa có |
+| D5 | LLP: SCI đạt mức X với chi phí thấp hơn nhiều, hoặc kết quả âm | — | — | chưa có |
+| D6 | Kết quả đứng trên dataset mới, ghi trước | — | — | chưa có |
+
+Động cơ (đã có, từ bài v2, chỉ dùng để giải thích vì sao cần thuật toán mới, trích v2): PLL q 0,6 trên Study 3, chuỗi đơn lấy lại 36% khoảng cách naive → oracle, X 77%; X tốn khoảng 3.700 lần gọi TFM.
+
+---
+
+## Bản 2 (12–13/11/2026, đã bỏ): luận điểm tỉ giá — giữ để tra
+
 *Khởi tạo 12/11/2026. Cập nhật mỗi khi một mốc xong. Một khẳng định chỉ được viết vào bài khi cột "Bằng chứng xác nhận" có nội dung; bằng chứng thăm dò chỉ dùng để quyết định có theo đuổi hay không.*
 
 | Mã | Khẳng định (dạng sẽ viết) | Loại | Bằng chứng thăm dò | Bằng chứng xác nhận | Trạng thái |

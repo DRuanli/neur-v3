@@ -4,7 +4,7 @@ Tài liệu này được nạp tự động ở đầu mỗi phiên. Đọc ti�
 
 ## Bối cảnh
 
-- Bài v3: *một nhãn yếu đáng bao nhiêu nhãn thật đối với một mô hình nền tảng bảng (TFM) đóng băng*. Đích: NeurIPS 2027, mục tiêu của thầy là 8–10 điểm. Chương trình: `v3/V3_PLAN.md`.
+- Bài v3 (từ 13/11/2026, theo quyết định của thầy): **phát triển thuật toán**. Đề xuất hiện tại: SCI, tức đưa nhãn yếu vào ngữ cảnh của TFM dưới dạng nhãn mềm, gồm SCI-0 (không huấn luyện) và SCI-FT (fine-tune để khấu hao suy luận). Đích: NeurIPS 2027, mục tiêu của thầy là 8–10 điểm. Chương trình: `v3/V3_PLAN.md` (bản 3). Luận điểm "tỉ giá quy đổi" của bản 2 đã bỏ (`v3/V3_IDEA_CHECK_2026-11-13.md`).
 - Bài v2 (*In-Context Gibbs*) là một bài riêng, ở kho `DRuanli/icgibbs`, gửi tạp chí. Bản chụp của nó nằm ở `prior/` và **không được sửa**. Ranh giới hai bài: `v3/OVERLAP_WITH_V2.md`.
 - Quy trình: 13 cổng G0–G12 và các quy tắc ở `research-handbook/`. Chương 11 là phần riêng cho v3.
 

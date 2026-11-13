@@ -12,3 +12,4 @@ Mỗi lượt chạy hoặc phân tích một dòng, ghi ngay khi làm. Loại: 
 | 13/11/2026 | TD | K1–K5: kiểm luận điểm tỉ giá bằng số S3B (chưa ai thấy trước 06:09 UTC) | S3B | `analysis/v3_s3b_check.py` | `results/v3_s3b_check.txt`, `v3_s3b_pairs.csv`, `v3_s3b_datasets.csv` | không có ngưỡng ghi trước |
 | 13/11/2026 | TD | η_low so với số lớp C ở PLL, q 0,3 và 0,6 trên cùng dataset | bảng Study 1–2 | `analysis/v3_eta_vs_classes.py` | `results/v3_eta_vs_classes.txt`, `.csv` | chỉ 3 lần hỏng, đều ở TabPFN v2 |
 | 13/11/2026 | tra tài liệu | 9 truy vấn cho khung tỉ giá; 8 trang đã mở | — | — | `V3_IDEA_CHECK_2026-11-13.md` §3, `G2/LITERATURE.md` §5 | phần LLP đã có |
+| 13/11/2026 | kỹ thuật | Lõi nhãn mềm cho TabICL v2 (`softctx.py`) và 8 test trên CPU, mô hình khởi tạo ngẫu nhiên | tổng hợp | `code/tests/test_softctx.py` | 8 qua; one-hot mềm = nhãn cứng (lệch < 1e-5) | không có trọng số thật |

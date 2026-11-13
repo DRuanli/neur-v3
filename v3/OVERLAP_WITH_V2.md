@@ -6,8 +6,8 @@
 |---|---|---|
 | Kho | `DRuanli/icgibbs` | `DRuanli/neur-v3` |
 | Đích | một tạp chí (thầy chọn) | NeurIPS 2027 |
-| Câu hỏi | phương pháp In-Context Gibbs có hơn baseline không, và vì sao chuỗi có lúc hỏng | một nhãn yếu đáng bao nhiêu nhãn thật với một TFM đóng băng; trần ở đâu |
-| Đóng góp | phương pháp (một chuỗi, nhiều điểm xuất phát, nhiều TFM); Định lý 1–3; Study 1–3; S3B | thước đo tỉ giá; tỉ giá trần; sơ đồ vùng; quy tắc không cần nhãn; các loại nhãn yếu mới; Study 4 |
+| Câu hỏi | phương pháp In-Context Gibbs có hơn baseline không, và vì sao chuỗi có lúc hỏng | (từ 13/11) thuật toán SCI: đưa nhãn yếu vào ngữ cảnh dưới dạng nhãn mềm, có hoặc không fine-tune, để bỏ vòng lặp suy luận |
+| Đóng góp | phương pháp (một chuỗi, nhiều điểm xuất phát, nhiều TFM); Định lý 1–3; Study 1–3; S3B | SCI-0, SCI-FT; lý thuyết khấu hao (T1–T3); Study 4. In-Context Gibbs chỉ là baseline và đại lượng mục tiêu, có trích v2 |
 
 ## Bài v3 được làm gì với nội dung của v2
 

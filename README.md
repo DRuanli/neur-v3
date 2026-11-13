@@ -1,4 +1,4 @@
-# neur-v3 — bài v3: tỉ giá quy đổi của nhãn yếu dưới mô hình nền tảng bảng đóng băng
+# neur-v3 — bài v3: thuật toán học từ nhãn yếu với mô hình nền tảng bảng (ngữ cảnh nhãn mềm, SCI)
 
 Kho riêng tư của bài v3 (đích NeurIPS 2027). Tách khỏi bài v2 (*In-Context Gibbs*, kho `icgibbs`) theo quyết định ngày 12/11/2026.
 
@@ -15,11 +15,11 @@ Kho riêng tư của bài v3 (đích NeurIPS 2027). Tách khỏi bài v2 (*In-Co
 
 ## Đọc theo thứ tự
 
-1. [`v3/V3_PLAN.md`](v3/V3_PLAN.md): luận điểm, sáu tuyên bố, các mốc và điều kiện dừng, rủi ro.
+1. [`v3/V3_PLAN.md`](v3/V3_PLAN.md): bản 3, hướng thuật toán (SCI): bằng chứng, thuật toán, lý thuyết cần xây, các mốc, rủi ro.
 2. [`v3/FINDINGS.md`](v3/FINDINGS.md): mọi phát hiện kế thừa, kèm nơi lấy số.
-3. [`v3/THEORY_NOTES.md`](v3/THEORY_NOTES.md): tỉ giá trần (bản nháp, chưa rà độc lập).
+3. [`v3/V3_IDEA_CHECK_2026-11-13.md`](v3/V3_IDEA_CHECK_2026-11-13.md): vì sao bỏ luận điểm tỉ giá; S3B nói gì.
 4. [`v3/G2/LITERATURE.md`](v3/G2/LITERATURE.md): tài liệu đã có, đã thấy, phải tra.
-5. [`v3/M2_PILOT_PLAN.md`](v3/M2_PILOT_PLAN.md): bản nháp thí điểm đầu tiên.
+5. [`v3/A1_PILOT_PLAN.md`](v3/A1_PILOT_PLAN.md): bản nháp thí điểm SCI-0.
 6. [`research-handbook/11_BAI_V3_CHUAN_8_10.md`](research-handbook/11_BAI_V3_CHUAN_8_10.md): chuẩn của một bài mức 8–10 và các bài học từ bốn vòng phản biện bài v2.
 
 ## Chạy kiểm thử (CPU)
