@@ -79,3 +79,37 @@
 | chen2015gibbs | PubMed Central (PMC4572746): J. Stat. Comput. Simul. 85(16):3266–3275, doi 10.1080/00949655.2014.968159; trang ghi tên bài theo chính tả Mỹ ("Behavior"), đăng trực tuyến 10/2014, số báo năm 2015. Tóm tắt nói rõ: phân phối giới hạn phụ thuộc thứ tự quét khi các điều kiện không tương thích |
 
 Tổng số tài liệu được trích: 39.
+
+## Bổ sung ngày 13/11/2026 (bản chuyển sang tạp chí)
+
+Mỗi dòng: đã mở trang arXiv (URL lấy từ kết quả tìm kiếm) và đối chiếu tên bài, tác giả, năm. Không trang nào ghi nơi đăng, nên cả sáu được trích dạng arXiv preprint.
+
+| Khoá | Tên bài, tác giả, năm như trang ghi | Trang đã mở | Dùng để nói gì trong bài |
+|---|---|---|---|
+| `busafekete2025llp` | Nearly Optimal Sample Complexity for Learning with Label Proportions — Robert Busa-Fekete, Travis Dick, Claudio Gentile, Haim Kaplan, Tomer Koren, Uri Stemmer; nộp 08/05/2025 | arxiv.org/abs/2505.05355v1 | lý thuyết số mẫu của LLP theo cỡ túi |
+| `icmil` | In-Context Multiple Instance Learning — Alexander Möllers, Marvin Sextro, Julius Hense, Gabriel Dernbach, Klaus-Robert Müller; 2026 (v2 08/09/2026) | arxiv.org/html/2606.06458 | huấn luyện trước một mô hình trong ngữ cảnh cho MIL trên dữ liệu tổng hợp |
+| `zhu2024iterated` | Eliciting the Priors of Large Language Models using Iterated In-Context Learning — Jian-Qiao Zhu, Thomas L. Griffiths; 04/06/2024 | arxiv.org/abs/2406.01860v1 | lặp học trong ngữ cảnh như một chuỗi lấy mẫu từ prior của mô hình |
+| `nagler2025martingale` | Uncertainty Quantification for Prior-Data Fitted Networks using Martingale Posteriors — Thomas Nagler, David Rügamer; 2025 (v3 01/2026) | arxiv.org/html/2505.11325v3 | rút nhãn từ dự đoán của PFN để lấy mẫu lại theo dự đoán (martingale posterior) |
+| `ng2025tabmgp` | TabMGP: Martingale Posterior with TabPFN — Kenyon Ng, Edwin Fong, David T. Frazier, Jeremias Knoblauch, Susan Wei; 29/10/2025 | arxiv.org/abs/2510.25154v2 | martingale posterior dựng trên TabPFN (chỉ nói ở mức này; cơ chế chưa đọc) |
+| `balakrishnan2014em` | Statistical guarantees for the EM algorithm: From population to sample-based analysis — Sivaraman Balakrishnan, Martin J. Wainwright, Bin Yu; 09/08/2014 | arxiv.org/abs/1408.2156v1 | vùng xuất phát mà từ đó EM hội tụ (lưu vực) |
+
+Ghi chú: `unlabeled_icl_theory` (đã có) được dùng thêm cho câu "lặp TabPFN trên nhãn giả mềm của chính nó cho bán giám sát", theo lần đọc ngày 12/11/2026.
+
+
+## Bổ sung ngày 13/11/2026, vòng 3 (theo phản biện TMLR F22, F7, F26)
+
+Mỗi dòng: URL lấy từ kết quả WebSearch; đã mở trang và đối chiếu tên bài, tác giả, nơi đăng, năm, trang.
+
+| Khoá | Thông tin như trang ghi | Trang đã mở | Dùng để nói gì trong bài |
+|---|---|---|---|
+| `johnson2013hogwild` | Analyzing Hogwild Parallel Gaussian Gibbs Sampling — Matthew J. Johnson, James Saunderson, Alan Willsky; NIPS 26, 2013 (trang không ghi số trang) | papers.nips.cc/paper/5043-… | Gibbs song song kiểu Hogwild (cập nhật song song với trạng thái cũ) và sai lệch của nó; chỉ nói ở mức "liên quan tới khối không hiệu chỉnh" |
+| `desa2016asyncgibbs` | Ensuring Rapid Mixing and Low Bias for Asynchronous Gibbs Sampling — Christopher De Sa, Chris Re, Kunle Olukotun; ICML 2016, PMLR 48:1567–1576 | proceedings.mlr.press/v48/sa16.html | sai lệch và thời gian trộn của Gibbs bất đồng bộ |
+| `celeux1985sem` | The SEM algorithm: a probabilistic teacher algorithm derived from the EM algorithm for the mixture problem — G. Celeux, J. Diebolt; Computational Statistics Quarterly 2:73–82, 1985 (theo danh mục tham khảo của arXiv 1310.5034; chưa mở bản gốc) | arxiv.org/pdf/1310.5034 | gốc của "stochastic EM" |
+| `tanner1987da` | The Calculation of Posterior Distributions by Data Augmentation — Martin A. Tanner, Wing Hung Wong; JASA 82(398):528–540, 1987 | stat.cmu.edu/~brian/…/tanner-wong-1987-with-disc.pdf (trang đầu bản gốc) | data augmentation: lấy mẫu dữ liệu ẩn xen với tham số |
+| `hullermeier2006plknn` | Learning from ambiguously labeled examples — Eyke Hüllermeier, Jürgen Beringer; Intelligent Data Analysis 10(5):419–439 (IOS Press; trang Paderborn ghi 419–440), 2006, doi 10.3233/IDA-2006-10503 | content.iospress.com/articles/intelligent-data-analysis/ida00259; ris.uni-paderborn.de/record/16177; bản nháp IDADRAFT.pdf §4.1 | PL-kNN: mỗi láng giềng bỏ phiếu cho mọi nhãn trong tập ứng viên của nó (bản nháp §4.1: thay I(λ = λ_x) bằng I(λ ∈ L_x)) |
+| `zhang2015ipal` | Solving the Partial Label Learning Problem: An Instance-Based Approach — Min-Ling Zhang, Fei Yu; IJCAI 2015, tr. 4048–4054 | ijcai.org/Proceedings/15/Abstracts/568.html; mlanthology.org/ijcai/2015/zhang2015ijcai-solving | IPAL, baseline PLL dựa trên láng giềng, chưa chạy |
+| `ruping2010invcal` | SVM Classifier Estimation from Group Probabilities — Stefan Rüping; ICML 2010, tr. 911–918 | mlanthology.org/icml/2010/ruping2010icml-svm | InvCal, baseline LLP phi nơ-ron, chưa chạy |
+| `yu2013propsvm` | ∝SVM for Learning with Label Proportions — Felix Yu, Dong Liu, Sanjiv Kumar, Tony Jebara, Shih-Fu Chang; ICML 2013, PMLR 28:504–512 | mlanthology.org/icml/2013/yu2013icml-learning | ∝SVM, baseline LLP phi nơ-ron, chưa chạy |
+| `balakrishnan2014em` (cập nhật) | bản đăng: The Annals of Statistics 45(1):77–120, 2017, doi 10.1214/16-aos1435 | escholarship.org/uc/item/7r74k08k | như trước; nay trích bản đăng tạp chí |
+
+Định dạng: bốn bản arXiv (`inctx_pu`, `noise_immunity`, `ic_ssl`, `tabimpute`) chuyển sang kiểu `@article` để style không in "In arXiv preprint". `tabimpute` ghi rõ v4 (17/02/2026), vì tên bài và năm 2026 là của bản v4.

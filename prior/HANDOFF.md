@@ -1,6 +1,6 @@
 # HANDOFF: trạng thái đề tài A để làm tiếp ở chat khác
 
-*Cập nhật 04/11/2026, commit sau `2ff12b4`. Mỗi khi trạng thái đổi, sửa tài liệu này trước tiên. Kho riêng tư: `github.com/DRuanli/icgibbs`, nhánh `main`, thư mục gốc của đề tài là `de-tai-moi/`.*
+*Cập nhật 13/11/2026 (mục 0l, 0k), 12/11/2026 (0j, 0i); phần còn lại cập nhật 04/11/2026, commit sau `2ff12b4`. Mỗi khi trạng thái đổi, sửa tài liệu này trước tiên. Kho: `github.com/DRuanli/icgibbs` (**đang công khai**, kiểm bằng GitHub API ngày 13/11/2026), nhánh `main`, thư mục gốc của đề tài là `de-tai-moi/`.*
 
 ## 0. Đọc gì trước
 
@@ -20,6 +20,31 @@
 | Giao thức đóng băng của Study 1 | `G5/EXPERIMENT_PROTOCOL.md`, `G5/FREEZE_RECORD.md` |
 | Kế hoạch Study 2 (đóng băng ở commit `aaee9fd`, 01/11 15:19 UTC) | [S2/S2_PLAN.md](S2/S2_PLAN.md) |
 | Khai báo dùng AI | [docs/AI_USAGE.md](docs/AI_USAGE.md) |
+
+## 0l. Bài v2 bản TMLR sau vòng phản biện 3 (13/11/2026)
+
+- **Trạng thái:** bản nộp được cho TMLR (đích mặc định; chờ thầy xác nhận tạp chí). `paper/main.pdf` 42 trang; chính văn và Broader Impact Statement trong 12 trang. `make data && make pdf && make submission` sinh lại mọi số, PDF, gói nguồn ẩn danh `_submission/source.zip` và phụ lục bổ sung `_submission/supplement.zip` (không vào git).
+- **Vòng 3:** kiểm toán số liệu S3B (`G9/reviews/REVIEW_V2_AUDIT_R3.md`) và phản biện theo tiêu chí TMLR (`G9/reviews/REVIEW_V2_TMLR_R3.md`, khuyến nghị sửa lớn). Mọi ý đã xử lý trong bài, trừ các việc cần chạy thêm; bảng đối chiếu ở `G9/REVIEW_V2_RESPONSE.md` §6.
+- **Phân tích thăm dò mới** (viết sau khi chấm; trong bài luôn ghi exploratory): `S3/s3_round3_explore.py`, `V2/analysis/w1_delta_chain.py`. Kết quả đáng chú ý: chuỗi khởi từ L của mỗi TFM, lấy trung bình, ngang bản gộp nhiều TFM (−0,001, 5/7/8) với 1/3 chi phí; cận dưới ước lượng δ ≥ 0,05 (trung vị).
+- **Việc mở, cần thầy quyết:**
+  1. xác nhận TMLR (hoặc tạp chí khác);
+  2. hai kho `icgibbs` và `neur-v3` đang công khai: nên chuyển sang riêng tư khi nộp bản ẩn danh;
+  3. có chạy một lượt Kaggle CPU (ghi trước) cho GBDT-PLL có tune, ensemble của L, IPAL/InvCal không (F7, F8);
+  4. có lập kho ẩn danh (anonymous.4open.science) cho người phản biện không (F10).
+- **Trước khi nộp:** nêu tên tác giả chỉ ở bản camera-ready; chạy lại `make submission` với `--forbid` tên tác giả và đơn vị.
+
+## 0k. S3B / S3BC đã chấm (13/11/2026)
+
+- Báo cáo: `S3/S3B_REPORT.md`. B1 và B2 chính thức; B3 còn 5/72 ô (dataset 46933), chấm tạm trên TabDPT; P22 "ĐÚNG tạm thời", nhưng vế "lợi trung bình dưới 0,03" sẽ sai khi đủ ô (xem tạm 67 ô: +0,056).
+- Kết quả chính cho bài v2: X hơn GBDT tự huấn luyện 19/20 (p_Holm 0,0002) và PL-kNN 8/8 (p_Holm 0,016). Chuỗi đơn **không** hơn rõ GBDT không tune. L không mạnh hơn baseline CPU không tune.
+- Việc kế tiếp: thầy chạy phiên 2 lượt S3B; chấm B3 lần cuối; sửa bài v2 theo `S3/S3B_REPORT.md` §5.
+
+## 0j. Tách bài v3 (12/11/2026)
+
+- **Thầy quyết định 12/11/2026:** v3 là một bài riêng, làm ở Project riêng và kho riêng `github.com/DRuanli/neur-v3`. Bài v2 (kho này) để nguyên và gửi một tạp chí; đích không còn là NeurIPS 2027.
+- Kho `neur-v3` chứa bản chụp của `de-tai-moi/` tại commit `120c4d9` (thư mục `prior/`, không gồm các file `*_preds.jsonl`), code, sổ tay bản 1.1 và hồ sơ v3. Chương trình nghiên cứu mới nhất của v3 là `v3/V3_PLAN.md` **ở kho đó**; `V3/V3_PLAN.md` ở kho này là bản 1 và không còn được cập nhật.
+- **Việc còn lại ở kho này:** chấm S3B / S3BC khi thầy gửi kết quả (`S3/s3b_report.py`), đưa vào bài v2, chuyển bài sang mẫu của tạp chí thầy chọn, xử lý mục giấy phép còn treo và các ý nhỏ của `G9/reviews/REVIEW_V2_ROUND2.md`. Sau khi chấm S3B, chép kết quả sang `prior/` của kho `neur-v3` (mốc M1 của v3 cần nó).
+- Ranh giới giữa hai bài: `v3/OVERLAP_WITH_V2.md` ở kho `neur-v3`.
 
 ## 0i. Bản thảo NeurIPS 2027 của bài v2 (12/11/2026)
 
