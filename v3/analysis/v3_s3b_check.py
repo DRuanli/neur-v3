@@ -106,8 +106,8 @@ def main():
     for c in ("rec_v1", "rec_A1", "rec_X", "spread"):
         print(f"  rho(η_low, {c}) = {sp(h.eta_low, h[c]):+.2f};  rho(η_low·n, {c}) = {sp(h.eta_low_n, h[c]):+.2f}")
 
-    print(f"\n## K5. B3 ({len(j)}/72 ô): độ đúng nhãn của chuỗi ấm ở vòng 30 và vòng 100")
     j = pd.read_csv(os.path.join(RES, "s3b_long_cells.csv"))
+    print(f"\n## K5. B3 ({len(j)}/72 ô): độ đúng nhãn của chuỗi ấm ở vòng 30 và vòng 100")
     for t, h in j.groupby("backend"):
         s = h[h.T2 == 1]
         print(f"  {t:10s} {len(h)} ô; kẹt {len(s)}, sửa được {int(s.repaired.sum())}; lợi trung bình {h.gain.mean():+.3f}"
