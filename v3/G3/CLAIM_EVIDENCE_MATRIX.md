@@ -11,6 +11,17 @@
 | C5 | Tỉ giá và vùng dự báo được từ đại lượng không cần nhãn | thực nghiệm | V1C của v2: túi gom theo feature dễ hơn (giải thích sau sự kiện) | — | chưa viết được |
 | C6 | Khung đo và bộ lấy mẫu áp dụng cho nhãn bù, MIL, số đếm có nhiễu và dữ liệu nhãn yếu thật | thực nghiệm | PLL thật 3 bộ ở Study 1 của v2 | — | chưa viết được |
 
+## Cập nhật 13/11/2026 sau S3B (`V3_IDEA_CHECK_2026-11-13.md` §2)
+
+| Mã | Trạng thái mới |
+|---|---|
+| C1 | chưa kiểm (S3B không có đường học của oracle) |
+| C2 | suy yếu nặng: phần LLP đã có trong tài liệu; công thức tín hiệu yếu không dự báo được kết quả ở dữ liệu thật |
+| C3 | bị bác ở LLP (chuỗi đơn ≈ hard-EM ≈ GBDT không tune); ở PLL chỉ đúng cho X và A1 |
+| C4 | được ủng hộ (PLL: phụ thuộc điểm xuất phát +0,131, LLP +0,007); "lưu vực" chỉ đúng một phần (TabPFN-3 leo chậm) |
+| C5 | bị bác ở dạng "chỉ từ nhãn yếu": R-D không lặp lại; ranh giới phụ thuộc TFM |
+| C6 | chưa kiểm |
+
 ## Khẳng định KHÔNG được viết (đã có bằng chứng ngược)
 
 | Khẳng định | Bằng chứng ngược |
@@ -20,3 +31,8 @@
 | "Chuỗi giúp ở mọi loại nhãn yếu" | R-A: âm ở nhãn nhiễu và bán giám sát |
 | "Chẩn đoán được chuỗi hỏng mà không cần nhãn" | H8 và H3″ của v2 đều trượt |
 | "Định lý 3 dự báo được lưu vực trên dữ liệu thật" | cần biên 0,25–0,35, đo được ≤ 0,14 |
+| "Một túi đáng một nhãn" như một kết quả mới | Busa-Fekete và cộng sự, ICML 2025 |
+| "Vùng bất khả xác định được từ η_low·n" | S3B: 1515 và 42 có η_low·n ≈ 14–16 nhưng X lấy lại 73% và 87% |
+| "Phần lấy lại tăng theo độ tách lớp" | S3B: ρ = +0,18 |
+| "Chuỗi đơn hơn baseline không nơ-ron" | S3B: +0,031 [−0,003; +0,071]; ở PLL thua PL-kNN về trung bình |
+| "Thêm vòng quét không giúp" | S3B (xem tạm): lợi trung bình +0,056; TabPFN-3 leo chậm |

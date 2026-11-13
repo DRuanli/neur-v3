@@ -2,7 +2,12 @@
 
 - **Trạng thái:** bản nháp của em, viết ngày 12/11/2026. **Chưa có ai rà độc lập.** Hai công thức ở §1 đã kiểm bằng mô phỏng (`v3/analysis/check_eta_low.py`), nhưng mô phỏng chỉ kiểm phép tính đại số, không kiểm việc công thức có trả lời đúng câu hỏi hay không.
 - **Việc bắt buộc trước khi dùng trong bài hay trong một dự báo ghi trước:** một người hoặc agent chưa tham gia rà toàn bộ tài liệu này (quy tắc 10 của sổ tay).
-- **Tính mới chưa kiểm:** nguyên lý nền (thông tin thiếu, mục 2) là kinh điển. Em chưa tra xem hai công thức ở §1 đã được viết ra cho LLP và PLL hay chưa. Xem `G2/LITERATURE.md` mục 4.
+- **Cập nhật 13/11/2026 (`V3_IDEA_CHECK_2026-11-13.md`):**
+  - Công thức LLP ở §1.1 đã có dưới dạng số mẫu (Busa-Fekete và cộng sự, ICML 2025: tổng số mẫu tăng tuyến tính theo cỡ túi; Javanmard và cộng sự 2024: phương sai lớn hơn khoảng k lần; PriorBoost 2024: túi chọn có chủ đích tốt hơn túi ngẫu nhiên). Không còn là đóng góp mới.
+  - Dự báo "vùng bất khả" ở §5 bị dữ liệu mới bác: hai dataset có η_low·n ≈ 14–16 vẫn được X lấy lại 73% và 87% khoảng cách. η_low chỉ là giới hạn tín hiệu yếu, mà dữ liệu thật xa giới hạn đó.
+  - Khuôn mẫu "tỉ giá tăng theo độ tách lớp" (§4) không lặp lại ở dạng phần lấy lại (R-D, ρ = +0,18 trên dữ liệu mới).
+  - Vì vậy em **dừng việc rà độc lập** tài liệu này cho tới khi thầy chọn hướng; nó chỉ cần rà nếu chọn hướng A.
+- **Tính mới chưa kiểm (ghi ngày 12/11):** nguyên lý nền (thông tin thiếu, mục 2) là kinh điển. Em chưa tra xem hai công thức ở §1 đã được viết ra cho LLP và PLL hay chưa. Xem `G2/LITERATURE.md` mục 4.
 
 ## 0. Đại lượng trung tâm
 

@@ -51,3 +51,17 @@ Các mục dưới đây em nêu từ kiến thức nền; **tên bài, tác gi�
 | TFM và nhãn yếu từ 06/2026 tới nay | arXiv, OpenReview (NeurIPS 2026, ICLR 2027) | bài v1/v2 kết luận tính mới ngày 24/10/2026; phải cập nhật |
 
 Truy vấn gợi ý: `"label proportions" Fisher information efficiency`; `"partial label" "relative efficiency" OR "Fisher information" candidate set`; `"how many" weak labels "worth" labeled`; `"relative value of labeled and unlabeled samples"`; `"missing information principle" weak supervision`; `tabular foundation model "weak" OR "partial label" OR "label proportions" 2026`.
+
+## 5. Tra ngày 13/11/2026 cho khung tỉ giá (đã mở trang; chưa đối chiếu đủ để trích)
+
+| Công trình | Mã | Đã đọc | Liên quan |
+|---|---|---|---|
+| Busa-Fekete, Dick, Gentile, Kaplan, Koren, Stemmer, *Nearly Optimal Sample Complexity for Learning with Label Proportions*, ICML 2025 | arXiv 2505.05355 | tóm tắt, các định lý chính | tổng số mẫu tuyến tính theo cỡ túi, có cận dưới; **phủ phần LLP của C2** |
+| Javanmard, Chen, Mirrokni, Badanidiyuru, Fu, *Learning from Aggregate Responses: Instance Level versus Bag Level Loss Functions* | arXiv 2401.11081 | phần kết quả | phương sai theo túi lớn hơn khoảng k lần |
+| Javanmard, Fahrbach, Mirrokni, *PriorBoost* | arXiv 2402.04987 | tóm tắt | túi chọn có chủ đích tốt hơn túi ngẫu nhiên |
+| Castelli và Cover, *The relative value of labeled and unlabeled samples in pattern recognition with an unknown mixing parameter* (1996) | — | chỉ trang thư mục | tiền lệ kinh điển của khung "giá trị một nhãn" |
+| Zhu, Shen, Mosbach, Stephan, Klakow, *Weaker Than You Think* | arXiv 2305.17442 | tóm tắt, các số chính | vài chục nhãn sạch mỗi lớp xoá phần lớn lợi ích của học nhãn yếu (NLP); khuôn mẫu cho hướng C |
+| Ahfock và McLachlan, *Harmless label noise and informative soft-labels in supervised classification* | arXiv 2104.02872 | định lý chính | hiệu suất tương đối tiệm cận của nhãn đa người gán, dạng đóng |
+| Liu và Dietterich, *Learnability of the Superset Label Learning Problem*, ICML 2014 | PMLR v32 | chỉ tóm tắt | số mẫu cho PLL theo độ nhập nhằng; phải đọc định lý |
+| *Stronger Than You Think: Benchmarking Weak Supervision on Realistic Tasks* (NeurIPS 2024, Datasets and Benchmarks; tác giả chưa kiểm) | arXiv 2501.07727 | chỉ thấy trong kết quả tìm | benchmark nhãn yếu; liên quan hướng C |
+| *A Mechanistic Study of Tabular Foundation Models* | arXiv 2605.21288 | chỉ thấy trong kết quả tìm | liên quan hướng B |

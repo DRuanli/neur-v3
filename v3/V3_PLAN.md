@@ -1,5 +1,7 @@
 # Bài v3: chương trình nghiên cứu
 
+> **Cập nhật 13/11/2026: luận điểm của bản này bị suy yếu nặng và đang chờ thầy chọn hướng mới.** Kết quả S3B và lần tra tài liệu cho thấy (i) phần lý thuyết LLP đã có trong tài liệu, (ii) dự báo tín hiệu yếu không dự báo được kết quả ở dữ liệu thật, (iii) khuôn mẫu "tăng theo độ tách lớp" không lặp lại, (iv) ranh giới vùng khó do TFM quyết định. Chi tiết, ba hướng thay thế và đề xuất: `V3_IDEA_CHECK_2026-11-13.md`. Mốc M1 đã qua (X lấy lại 70% ở LLP, 77% ở PLL). Không chạy M2 theo thiết kế hiện tại.
+
 *Bản 2, ngày 12/11/2026. Bản 1 (cùng ngày, trong kho `icgibbs`, commit `120c4d9`) là đề xuất đầu tiên; bản này thay nó sau quyết định tách bài của thầy và sau ba phép tính định hướng mới (R-A đến R-E).*
 
 - **Quyết định của thầy (12/11/2026):** v3 là một bài riêng, làm ở Project riêng và kho riêng (`DRuanli/neur-v3`). Bài v2 để nguyên và gửi một tạp chí. Mục tiêu của v3: 8–10 điểm ở NeurIPS 2027 (hạn nộp ước 05/2027).
@@ -40,7 +42,7 @@ Gọi là "mốc" (M) để khỏi lẫn với 13 cổng G0–G12 của sổ tay
 |---|---|---|---|
 | **M0** | Định hướng trên dữ liệu cũ: H-A, H-B, R-A đến R-E; hai công thức tín hiệu yếu | **xong 12/11** | — |
 | **M0b** | Tra tài liệu cho khung tỉ giá và cho hai công thức (`G2/LITERATURE.md` mục 4); rà độc lập `THEORY_NOTES.md` | CPU, 2–3 ngày | công thức và khung đo đã có sẵn cho đúng bối cảnh này: thu hẹp đóng góp về phần đo với TFM |
-| **M1** | Dùng kết quả S3B của bài v2: phần khoảng cách naive → oracle mà X lấy lại trên 20 dataset của Study 3 | 0 (chờ S3B) | dưới 50% ở cả LLP và PLL |
+| **M1** | Dùng kết quả S3B của bài v2: phần khoảng cách naive → oracle mà X lấy lại trên 20 dataset của Study 3 | **xong 13/11: qua** (LLP 70%, PLL 77%) | dưới 50% ở cả LLP và PLL |
 | **M2** | Thí điểm tỉ giá và sơ đồ vùng trên tập phát triển (bản nháp: `M2_PILOT_PLAN.md`) | 3–4 phiên Kaggle | tỉ giá đo được không ổn định giữa các seed tới mức không xếp hạng được các mức nhãn yếu; hoặc tỉ giá không tăng theo độ tách lớp |
 | **M3** | Tính tổng quát: nhãn bù, MIL, số đếm có nhiễu; một bộ LLP thật | 1–2 phiên | không loại mới nào cho tỉ giá vượt cách dùng ngây thơ |
 | **M4** | Lý thuyết: tỉ giá trần ở tín hiệu hữu hạn; vị trí vùng kẹt từ ánh xạ phản ứng; **viết dự báo cho M5 trước khi chạy** | CPU | dự báo lệch có hệ thống trên tập phát triển |

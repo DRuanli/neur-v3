@@ -1,4 +1,4 @@
-# Những gì đã biết khi bắt đầu bài v3 (tổng hợp ngày 12/11/2026)
+# Những gì đã biết khi bắt đầu bài v3 (tổng hợp ngày 12/11/2026; cập nhật 13/11/2026 với S3B)
 
 Tài liệu này gom mọi phát hiện của bài v1/v2 mà bài v3 cần, kèm nơi lấy số. Bản chụp đầy đủ của dự án cũ nằm ở `prior/` (commit `120c4d9` của kho `icgibbs`). Khi một con số ở đây lệch với file nguồn, **file nguồn đúng**.
 
@@ -75,7 +75,7 @@ Nguồn: `prior/S3/S3_REPORT.md`, `prior/S3/results/s3_summary.json`, dự đoá
 
 - **Ánh xạ phản ứng** (độ đúng của nhãn TFM gán lại, theo độ đúng của ngữ cảnh): TabPFN v2 củng cố nhãn ngữ cảnh sai trong một vùng; TabICL v2 thì không (`prior/S2/S2X_REPORT.md`).
 - Ánh xạ đo bằng nhiễu đều **không dự báo** được điểm dừng của chuỗi: chuỗi dừng cao hơn điểm bất động của nó ở 96% trong 234 ô (sai số trung vị 0,073). Ánh xạ đo trên chính trạng thái của chuỗi thì khớp (sai số 0,016), nhưng đó là phép đo vòng tròn, không phải dự báo (`prior/V2/V1C_REPORT.md`).
-- Chuỗi chạy 30 vòng quét hay dài hơn: chờ S3B (dự đoán P22 đã ghi trước).
+- Chuỗi chạy 30 vòng quét hay dài hơn: S3B (mục 3.4) cho thấy 100 vòng hiếm khi sửa được ô kẹt, nhưng chuỗi TabPFN-3 leo chậm; kẹt là lẫn giữa lưu vực và trộn chậm.
 - Khối có sửa Metropolis–Hastings: chậm hơn trung vị 7 lần, không tốt hơn ở PLL (`prior/S2/S2E_REPORT.md`).
 - Túi gom theo feature **dễ hơn** túi ngẫu nhiên, trái với giả định lúc thiết kế (`prior/V2/V1C_REPORT.md` §8). Xem `THEORY_NOTES.md` §1.1 để có lời giải thích.
 
@@ -94,6 +94,23 @@ Số đầy đủ: `v3/results/v3_headroom.txt`, `v3/results/v3_regimes.txt`.
 
 **Cảnh báo về thước đo.** "Lấy lại 75% khoảng cách" và "tỉ giá 0,13" có thể cùng đúng trên một dataset. Đường học của TFM có nhãn thật rất phẳng, nên một khoảng cách nhỏ về AUC ứng với rất nhiều nhãn. Bài v3 phải báo cáo cả hai và lấy tỉ giá làm chính.
 
+### 3.4 Lượt bổ sung S3B / S3BC của bài v2 (13/11/2026) — B1, B2 chính thức; B3 tạm thời
+
+Báo cáo đầy đủ: `prior/S3/S3B_REPORT.md`. Dữ liệu: `prior/S3/raw/S3B/`. Kiểm định luận điểm v3 bằng các số này: `V3_IDEA_CHECK_2026-11-13.md`.
+
+| Mã | Kết quả | Loại |
+|---|---|---|
+| B1 | X hơn GBDT tự huấn luyện không tune +0,135 (trung vị +0,031), 19/0/1, p_Holm 0,0002; hơn PL-kNN không tune +0,188, 8/0/0, p_Holm 0,016 | [XN-bổ sung] |
+| B1 | L (đã tune) so với baseline CPU tốt hơn: +0,022, trung vị −0,003, 7/1/12, p 0,84 | [XN-bổ sung] |
+| B1 | Chuỗi đơn − GBDT: +0,031 [−0,003; +0,071], 11/1/8. Ở PLL, trung bình chuỗi đơn 0,589 thấp hơn PL-kNN 0,620 | mô tả |
+| B2 | Chuỗi đơn tốt hơn hard-EM về log loss 17/20, p < 0,001; về chỉ số chính +0,020 (LLP +0,001) | [XN-bổ sung] / mô tả |
+| B2 | X kém oracle tốt nhất 0,085 (LLP 0,052; PLL 0,135), ở 18/20 dataset | mô tả |
+| B2 | TabPFN-3, PLL: chuỗi đơn 0,371 và hard-EM 0,367, sát mức ngây thơ 0,357; A1 0,650 | mô tả |
+| B3 | P22 ĐÚNG tạm thời (chỉ TabDPT đủ ô). Xem tạm 67/72 ô: sửa được 5/35 ô kẹt (14%), nhưng lợi trung bình +0,056; vế "lợi dưới 0,03" sẽ sai khi đủ ô | tạm thời |
+| B3 | TabPFN-3 leo chậm: độ đúng nhãn 0,35 → 0,45 từ vòng 30 tới vòng 100, 10/22 ô còn đang tăng | xem tạm |
+
+[XN-bổ sung] nghĩa là kiểm định ghi trước, nhưng ghi **sau** khi Study 3 đã chấm trên cùng dataset.
+
 ## 4. Lý thuyết đang có
 
 | Kết quả | Trạng thái | Nguồn |
@@ -103,7 +120,7 @@ Số đầy đủ: `v3/results/v3_headroom.txt`, `v3/results/v3_regimes.txt`.
 | Định lý 3 (sàn, trần, lưu vực) dưới Giả định phản ứng đồng nhất | [LT]; **không chứng nhận được gì ở cỡ dataset hiện có** (cần biên 0,25–0,35, đo được ≤ 0,14); độ lệch δ của giả định chưa ước lượng; không phủ LLP | `prior/V2/W1_R1A_REPORT.md` |
 | Mô-men dừng; độ lệch dự đoán của khối không sửa | [LT], trong mô hình liên hợp | như trên |
 | Mệnh đề về TFM ngây thơ (khi nào nhãn ngây thơ đã đủ) | [LT]; đã sửa một lỗi cũ về thông tin Fisher của LLP | `appendix_proofs.tex` |
-| Tỉ giá trần ở tín hiệu yếu | **[LT-nháp]**, 12/11 | `v3/THEORY_NOTES.md` |
+| Tỉ giá trần ở tín hiệu yếu | **[LT-nháp]**, 12/11. Phần LLP đã có trong tài liệu; không dự báo được kết quả ở dữ liệu thật (13/11) | `v3/THEORY_NOTES.md` |
 
 ## 5. Kết quả âm và dự đoán sai (giữ lại, đừng lặp lại)
 
@@ -114,13 +131,16 @@ Số đầy đủ: `v3/results/v3_headroom.txt`, `v3/results/v3_regimes.txt`.
 - Chuỗi lạnh không đóng góp.
 - Bối cảnh "khó" thiết kế bằng túi gom theo feature hoá ra dễ hơn.
 - Với nhãn nhiễu, bán giám sát và PU, chuỗi không hơn TFM ngây thơ.
+- (13/11) "Phần lấy lại tăng theo AUC của oracle" (R-D) không lặp lại trên dữ liệu mới của S3B: ρ = +0,18.
+- (13/11) Dự báo "vùng bất khả" theo η_low·n sai trên hai dataset (1515, 42).
+- (13/11) Chuỗi đơn không hơn rõ một GBDT không tune; ở PLL thua PL-kNN không tune về trung bình.
 
 ## 6. Bốn vòng phản biện bài v2 nói gì
 
 Điểm kiểu NeurIPS: vòng 1 là 4/10, vòng 2 là 5/10 (Soundness 3, Presentation 2, Contribution 3). Biên bản ở `prior/G9/reviews/`, cách xử lý ở `prior/G9/REVIEW_V2_RESPONSE.md`.
 
 Điểm yếu còn lại là điểm yếu khoa học, không sửa bằng viết lại được:
-1. Study 3 chỉ có một baseline (L). So sánh với baseline dạng cây và kNN chờ S3B.
+1. Study 3 chỉ có một baseline (L). Đã bổ sung bằng S3B: X hơn GBDT và PL-kNN không tune; nhưng chuỗi đơn thì không hơn rõ.
 2. Cấu hình khuyến nghị (X) chỉ hơn L trong phân tích thăm dò.
 3. Định lý 3 không định lượng được ở cỡ dữ liệu thật.
 4. Lợi ích trung vị nhỏ; lợi dồn vào PLL nhiều lớp.
@@ -130,13 +150,13 @@ Các lỗi lặp lại mà phản biện bắt được (đã thành quy tắc �
 
 ## 7. Việc còn treo từ dự án cũ
 
-- **S3B / S3BC** (bổ sung ghi trước trên dataset của Study 3: baseline kNN và cây, naive và oracle với 4 TFM, chuỗi 100 vòng quét): code `s2_code_v16.zip` đã giao, **chờ thầy chạy**. Kết quả thuộc bài v2 và chấm trong kho `icgibbs`. Bài v3 dùng nó cho mốc M1.
+- **S3B / S3BC:** đã chạy và chấm ngày 13/11 (mục 3.4). Còn 5/72 ô B3 cần một phiên Kaggle nữa (chạy tiếp được); chấm B3 lần cuối ở kho `icgibbs` rồi chép sang `prior/`.
 - Bài v2 ở bản nháp 3, sẽ gửi tạp chí. Ranh giới giữa hai bài: `v3/OVERLAP_WITH_V2.md`.
 
 ## 8. Dataset
 
 - 83 dataset OpenML đã dùng hoặc đã nêu tên: `v3/datasets/USED_DATASETS.csv`. Thêm 3 bộ PLL thật (BirdSong, Lost, MSRCv2).
-- Mọi dataset đã dùng đều dùng được làm **tập phát triển** của v3. Riêng 20 dataset của Study 3 chỉ dùng sau khi S3B chấm xong.
+- Mọi dataset đã dùng đều dùng được làm **tập phát triển** của v3. Riêng 20 dataset của Study 3 chỉ dùng sau khi B3 của S3B chấm xong (còn 5 ô).
 - **Nguồn dataset mới sắp cạn.** Lần đếm cho Study 3 (9 suite OpenML, 267 dataset) có 43 ứng viên ở bậc tiêu chí rộng nhất; 20 đã dùng, 23 còn lại đều đã bị loại khi rà tay (`prior/S3/s3_review.csv`). Study 4 cần nguồn mới; xem `V3_PLAN.md` §7.
 - TabDPT được huấn luyện trên 123 dataset OpenML thật (`prior/V2/data/tabdpt_pretrain_ids.csv`); phải loại chúng khỏi mọi nghiên cứu xác nhận có TabDPT.
 

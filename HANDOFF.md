@@ -1,8 +1,16 @@
 # HANDOFF: trạng thái bài v3
 
-*Cập nhật 12/11/2026. Mỗi khi trạng thái đổi, sửa tài liệu này trước tiên. Kho: `github.com/DRuanli/neur-v3`, nhánh `main`.*
+*Cập nhật 13/11/2026 (mục 0); phần còn lại ngày 12/11/2026. Mỗi khi trạng thái đổi, sửa tài liệu này trước tiên. Kho: `github.com/DRuanli/neur-v3`, nhánh `main`.*
 
-## 1. Trạng thái
+## 0. Mới nhất (13/11/2026)
+
+- **S3B / S3BC đã chạy và chấm** (kho `icgibbs`, commit `ec7c868`; bản sao ở `prior/S3/S3B_REPORT.md`). B1 và B2 chính thức; B3 còn thiếu 5/72 ô, chấm tạm trên TabDPT.
+- **Kiểm định luận điểm v3** (`v3/V3_IDEA_CHECK_2026-11-13.md`): luận điểm "tỉ giá quy đổi" bị suy yếu nặng. Phần lý thuyết LLP đã có trong tài liệu, dự báo tín hiệu yếu sai ở dữ liệu thật, khuôn mẫu R-D không lặp lại, ranh giới vùng khó do TFM quyết định. Mốc M1 qua.
+- **Đang chờ thầy:** chọn hướng A (thu hẹp thành bài đo), B (hành vi của TFM khi ngữ cảnh có nhãn sai), C (đánh giá lại học nhãn yếu trên dữ liệu bảng) hay D (dồn cho bài v2 ở tạp chí, chọn đề tài NeurIPS khác). Em đề xuất làm xong bài v2 trước; nếu vẫn nhắm NeurIPS từ dòng này thì kiểm "giết hay giữ" hướng C trong 1–2 tuần.
+- **Không chạy M2** theo thiết kế hiện tại.
+- **Việc của thầy:** chạy phiên 2 của lượt S3B để xong 5 ô B3 (hướng dẫn ở `prior/G4/README.md`, mục S3B: notebook mới, thêm output phiên 1, dán y hệt hai ô).
+
+## 1. Trạng thái (12/11/2026)
 
 - **12/11/2026:** thầy quyết định tách v3 thành bài riêng, Project riêng, kho riêng. Kho này được khởi tạo cùng ngày từ kho `icgibbs` (commit `120c4d9`).
 - **Đã có:** bản chụp dự án cũ (`prior/`), code sống (`code/`), sổ tay đã cập nhật cho v3, chương trình nghiên cứu bản 2, các phép tính định hướng trên dữ liệu cũ, ghi chú lý thuyết bản nháp, bản nháp kế hoạch thí điểm.
@@ -38,7 +46,8 @@ Số liệu định hướng (thăm dò, 6 dataset, một TFM): tỉ giá đo đ
 
 | Đường dẫn | Nội dung |
 |---|---|
-| `v3/V3_PLAN.md` | chương trình nghiên cứu bản 2 |
+| `v3/V3_PLAN.md` | chương trình nghiên cứu bản 2 (luận điểm bị suy yếu ngày 13/11) |
+| `v3/V3_IDEA_CHECK_2026-11-13.md` | kiểm định luận điểm bằng S3B và tài liệu; ba hướng thay thế |
 | `v3/FINDINGS.md` | những gì đã biết, kèm nguồn số |
 | `v3/THEORY_NOTES.md` | tỉ giá trần, bản nháp |
 | `v3/G2/LITERATURE.md` | tài liệu: đã đối chiếu, đã thấy, phải tra |

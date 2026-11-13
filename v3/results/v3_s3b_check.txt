@@ -1,0 +1,42 @@
+## K1. Phần khoảng cách naive -> oracle được lấy lại (oracle = trung bình trên các TFM đã chạy dataset đó)
+  llp: n = 12; naive 0.718, oracle 0.875; v1 0.53 (trung vị theo dataset 0.53); hardem 0.52 (trung vị theo dataset 0.58); meanL 0.42 (trung vị theo dataset 0.43); best_cpu 0.50 (trung vị theo dataset 0.57); A1 0.57 (trung vị theo dataset 0.59); X 0.70 (trung vị theo dataset 0.68)
+     X so với oracle tốt nhất: 0.68
+  pll: n = 8; naive 0.393, oracle 0.934; v1 0.36 (trung vị theo dataset 0.44); hardem 0.27 (trung vị theo dataset 0.30); meanL 0.60 (trung vị theo dataset 0.67); best_cpu 0.46 (trung vị theo dataset 0.34); A1 0.61 (trung vị theo dataset 0.76); X 0.77 (trung vị theo dataset 0.89)
+     X so với oracle tốt nhất: 0.75
+  theo cặp (TFM, dataset), cùng một TFM: llp: v1 0.51, A1 0.56, hard-EM 0.51 (n = 46); pll: v1 0.36, A1 0.60, hard-EM 0.27 (n = 25)
+
+## K2. Lặp lại R-D (LLP): phần lấy lại của một chuỗi theo AUC của oracle; R-D trên Study 1–2 cho 0,25 / 0,53 / 0,70 / 0,79
+               n  oracle  rec_v1  rec_hardem  rec_A1
+band                                                
+(0.0, 0.8]    12    0.76    0.55        0.52    0.56
+(0.8, 0.9]    11    0.83    0.50        0.44    0.53
+(0.9, 0.95]   12    0.92    0.27        0.30    0.38
+(0.95, 1.01]  11    0.98    0.71        0.61    0.72
+  rho(AUC oracle, phần lấy lại của v1) = +0.18 trên 46 cặp; theo dataset (trung bình TFM): +0.17 trên 12
+
+## K3. Các phương pháp hội tụ hay toả rộng? spread = max − min của {v1, hard-EM, L, baseline CPU tốt nhất}
+  llp: trung vị spread 0.031, trung vị spread / khoảng cách 0.25; số dataset có spread < 0,03: 5/12
+  pll: trung vị spread 0.219, trung vị spread / khoảng cách 0.41; số dataset có spread < 0,03: 2/8
+  LLP, chênh trung bình theo dataset: v1 − hard-EM +0.001; v1 − GBDT tự huấn luyện +0.005; L − GBDT -0.013
+
+## K4. PLL: η_low ở q = 0,6 và độ khó (8 dataset)
+ dataset_id  C  n_train  eta_low  eta_low_n  naive  oracle    v1    A1     X  rec_v1  rec_X  spread
+       1515 20      399    0.035     14.000  0.078   0.856 0.291 0.404 0.645   0.274  0.729   0.284
+         42 19      441    0.037     16.333  0.092   0.941 0.350 0.795 0.833   0.304  0.873   0.575
+      40499 11     3831    0.067    255.373  0.332   1.000 0.734 0.999 0.999   0.602  0.999   0.370
+        307 11      693    0.067     46.195  0.106   0.990 0.261 0.441 0.607   0.175  0.567   0.155
+       1468  9      736    0.083     61.293  0.248   0.943 0.649 0.733 0.936   0.576  0.989   0.319
+       1478  6     7000    0.132    923.776  0.853   0.994 0.976 0.976 0.982   0.875  0.916   0.018
+       4538  5     6911    0.162   1122.346  0.469   0.783 0.487 0.489 0.499   0.058  0.097   0.070
+      46933  3     2677    0.280    749.560  0.963   0.964 0.964 0.964 0.964   1.169  1.499   0.006
+  rho(η_low, rec_v1) = +0.36;  rho(η_low·n, rec_v1) = +0.24
+  rho(η_low, rec_A1) = +0.23;  rho(η_low·n, rec_A1) = +0.14
+  rho(η_low, rec_X) = +0.28;  rho(η_low·n, rec_X) = +0.12
+  rho(η_low, spread) = -0.75;  rho(η_low·n, spread) = -0.62
+
+## K5. B3 xem tạm (67/72 ô; thiếu 3 seed TabICL v2 và 2 seed TabPFN-3 của dataset 46933): độ đúng nhãn của chuỗi ấm ở vòng 30 và vòng 100
+  tabdpt     24 ô; kẹt 10, sửa được 1; lợi trung bình +0.016 (ô kẹt +0.046); r30 0.628 -> r100 0.648; còn đang tăng 4
+  tabicl_v2  21 ô; kẹt 9, sửa được 3; lợi trung bình +0.035 (ô kẹt +0.084); r30 0.735 -> r100 0.758; còn đang tăng 5
+  tabpfn_v3  22 ô; kẹt 16, sửa được 1; lợi trung bình +0.121 (ô kẹt +0.167); r30 0.351 -> r100 0.445; còn đang tăng 10
+  cả 67 ô: kẹt 35, sửa được 5 (14%); lợi trung bình +0.056
+  5 ô còn thiếu: dù mỗi ô có lợi 0, lợi trung bình trên 72 ô vẫn là +0.053 (ngưỡng P22: 0,03)
