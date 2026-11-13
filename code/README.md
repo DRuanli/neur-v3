@@ -25,4 +25,5 @@ Mẫu ô lệnh, phiên bản gói và cách đóng gói code: `../prior/G4/READ
 
 ## Việc cần viết cho bài v3
 
-Xem `../v3/M2_PILOT_PLAN.md` §9: split cho tập phát triển của v3, đường học của oracle ở mọi mức, điểm xuất phát từ nhãn thật (dụng cụ đo), script lượt mới, script chấm.
+- Đã có (13/11): `icgibbs/softctx.py`, ngữ cảnh nhãn mềm cho TabICL v2 và trường trung bình trong ngữ cảnh; test ở `tests/test_softctx.py`.
+- Còn lại cho thí điểm A1: xem `../v3/A1_PILOT_PLAN.md` §7 (gắn `sci_once`, `sci_mf` vào bộ chạy, lượt A1, script chấm).
