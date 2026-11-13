@@ -9,7 +9,7 @@ là phân tích thăm dò; nó chỉ cho biết khuôn mẫu cũ có lặp lại
   K2  Lặp lại R-D: ở LLP, phần lấy lại tăng theo AUC của oracle? (cùng khoảng chia với R-D)
   K3  Các phương pháp có hội tụ về cùng một mức không (dấu hiệu giới hạn do thông tin), hay toả rộng (giới hạn do thuật toán)?
   K4  PLL: η_low(C, q = 0,6) và η_low·n so với độ khó đo được trên 8 dataset.
-  K5  B3 (chuỗi 100 vòng, xem tạm 67/72 ô): chuỗi kẹt hay leo chậm?
+  K5  B3 (chuỗi 100 vòng; đủ 72 ô từ 13/11/2026 chiều, chấm cuối ở kho icgibbs): chuỗi kẹt hay leo chậm?
 Chạy: python -I v3/analysis/v3_s3b_check.py   (từ gốc kho neur-v3)
 """
 import glob
@@ -106,7 +106,7 @@ def main():
     for c in ("rec_v1", "rec_A1", "rec_X", "spread"):
         print(f"  rho(η_low, {c}) = {sp(h.eta_low, h[c]):+.2f};  rho(η_low·n, {c}) = {sp(h.eta_low_n, h[c]):+.2f}")
 
-    print("\n## K5. B3 xem tạm (67/72 ô; thiếu 3 seed TabICL v2 và 2 seed TabPFN-3 của dataset 46933): độ đúng nhãn của chuỗi ấm ở vòng 30 và vòng 100")
+    print(f"\n## K5. B3 ({len(j)}/72 ô): độ đúng nhãn của chuỗi ấm ở vòng 30 và vòng 100")
     j = pd.read_csv(os.path.join(RES, "s3b_long_cells.csv"))
     for t, h in j.groupby("backend"):
         s = h[h.T2 == 1]

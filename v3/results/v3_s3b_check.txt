@@ -33,10 +33,3 @@ band
   rho(η_low, rec_A1) = +0.23;  rho(η_low·n, rec_A1) = +0.14
   rho(η_low, rec_X) = +0.28;  rho(η_low·n, rec_X) = +0.12
   rho(η_low, spread) = -0.75;  rho(η_low·n, spread) = -0.62
-
-## K5. B3 xem tạm (67/72 ô; thiếu 3 seed TabICL v2 và 2 seed TabPFN-3 của dataset 46933): độ đúng nhãn của chuỗi ấm ở vòng 30 và vòng 100
-  tabdpt     24 ô; kẹt 10, sửa được 1; lợi trung bình +0.016 (ô kẹt +0.046); r30 0.628 -> r100 0.648; còn đang tăng 4
-  tabicl_v2  21 ô; kẹt 9, sửa được 3; lợi trung bình +0.035 (ô kẹt +0.084); r30 0.735 -> r100 0.758; còn đang tăng 5
-  tabpfn_v3  22 ô; kẹt 16, sửa được 1; lợi trung bình +0.121 (ô kẹt +0.167); r30 0.351 -> r100 0.445; còn đang tăng 10
-  cả 67 ô: kẹt 35, sửa được 5 (14%); lợi trung bình +0.056
-  5 ô còn thiếu: dù mỗi ô có lợi 0, lợi trung bình trên 72 ô vẫn là +0.053 (ngưỡng P22: 0,03)
