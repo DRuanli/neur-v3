@@ -105,3 +105,14 @@ def test_mean_field_respects_candidates(ckpt, data):
     Q, P = sc.mean_field(m, X[:60], L, X_test=X[60:], n_iter=2, n_folds=3, rng=0)
     assert np.all(Q[L == 0] < 1e-9)
     assert np.allclose(Q.sum(1), 1) and np.allclose(P.sum(1), 1, atol=1e-5)
+
+
+def test_smoke_script_runs_on_tiny_checkpoint(ckpt, tmp_path):
+    import json
+    import smoke_softctx
+    rc = smoke_softctx.main(["--out", str(tmp_path), "--device", "cpu", "--model_path", ckpt, "--sizes", "120,300",
+                             "--n_estimators", "2"])
+    rep = json.load(open(tmp_path / "v3_SMOKE_report.json"))
+    assert rc == 0 and rep["all_pass"]
+    assert rep["checks"]["K1_wine"]["max_abs_diff_hard_vs_onehot_soft"] < 1e-3
+    assert rep["checks"]["K4_mean_field_one_iter_n1000"]["respects_candidates"]
