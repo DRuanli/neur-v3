@@ -49,12 +49,26 @@ Tài liệu này được nạp tự động ở đầu mỗi phiên. Đọc ti�
 
 Suy luận nhân quả, công bằng (fairness), kiểm định hay xác minh thống kê làm chủ đề chính.
 
+## Môi trường làm việc (từ 13/11/2026)
+
+- Làm việc chính trong **Claude Science** trên máy thầy (MacBook M1), Project `neur-v3`. Kho ở `~/research/neur-v3`. Hướng dẫn: `docs/claude-science/`.
+- Hai skill của đề tài: `skills/neur-v3-research`, `skills/kaggle-lot`.
+- Mọi thí nghiệm chạy trên Kaggle:
+  - đóng gói bằng `tools/make_code_bundle.py`;
+  - các lượt nằm trong `code/run_v3_lot.sh`;
+  - nhận kết quả bằng `tools/intake_results.py` vào `_incoming/` (không vào git);
+  - dữ liệu thô đã kiểm chép vào `v3/raw/<LƯỢT>/`.
+- Khoá Kaggle API (nếu dùng chế độ CLI) chỉ ở `~/research/kaggle-cred/`, ngoài kho, cấp quyền chỉ đọc. Không in hay commit.
+- Hỏi thầy trước mỗi lần đẩy một lượt lên Kaggle và trước mỗi `git push`.
+
 ## Lệnh thường dùng
 
 ```bash
 cd code && python -m pytest -q tests          # bộ test (CPU, khoảng 11 phút)
 python -I v3/analysis/v3_regimes.py           # các phép tính định hướng trên dữ liệu đã lưu
 python -I v3/datasets/make_used_datasets.py   # sinh lại danh sách dataset đã dùng
+python -I tools/make_code_bundle.py N         # đóng gói code cho Kaggle (gói thứ N)
+python -I tools/intake_results.py --lot LOT --bundle _bundles/v3_code_vN KET_QUA.zip   # nhận kết quả Kaggle
 ```
 
 ## Khi kết thúc một việc

@@ -119,6 +119,8 @@ research-handbook/
 - Hồ sơ theo cổng của bài v1/v2 nằm ở `prior/` và dùng được làm ví dụ đã điền cho mọi mẫu biểu.
 - Chương 11 có yêu cầu chặt hơn các chương khác ở vài điểm; khi đó áp dụng chương 11.
 
+- Làm việc trong Claude Science và chạy thực nghiệm trên Kaggle: xem `docs/claude-science/` ở gốc kho. Quy tắc 2 (ghi trước) và 13–15 áp dụng nguyên vẹn; skill `neur-v3-research` tóm tắt chúng cho Claude.
+
 ## 6. Cách dùng cho một dự án mới
 
 1. Tạo thư mục dự án, sao chép `templates/` vào `docs/` của dự án.

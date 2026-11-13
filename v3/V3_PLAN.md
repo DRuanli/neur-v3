@@ -4,7 +4,10 @@
 
 - **Quyết định của thầy (13/11/2026):** v3 theo hướng phát triển thuật toán.
 - **Các bản trước:** bản 2 (luận điểm "tỉ giá quy đổi", 12/11) ở `archive/V3_PLAN_ban2_ti_gia.md`; lý do bỏ ở `V3_IDEA_CHECK_2026-11-13.md`.
-- **Trạng thái:** đề xuất của em, chờ thầy duyệt (mục 8). Lõi kỹ thuật của thuật toán đã viết và qua test trên CPU (`code/icgibbs/softctx.py`, 8 test). Chưa có kết quả nào với trọng số thật.
+- **Trạng thái: ĐÃ CHỐT** (thầy, 13/11/2026 13:39: "chốt"). Q1–Q3 ở mục 8 được duyệt theo đề xuất; Q4 (đóng băng A1) duyệt khi code của A1 xong.
+- **Đã có:** lõi kỹ thuật `code/icgibbs/softctx.py` cùng 9 test trên CPU (mô hình khởi tạo ngẫu nhiên), lượt kiểm kỹ thuật SMOKE với trọng số thật (chưa chạy).
+- **Chưa có:** kết quả nào với trọng số thật.
+- **Môi trường làm việc từ 13/11/2026:** Claude Science trên máy thầy, Project `neur-v3`, theo `docs/claude-science/`. Mọi thí nghiệm chạy trên Kaggle.
 
 ## 1. Vì sao cần một thuật toán mới: điều dữ liệu của bài v2 nói
 
@@ -70,7 +73,7 @@ Mọi số dưới đây lấy từ Study 3 và S3B (20 dataset mới, 4 TFM; `F
 
 | Mốc | Việc | Chi phí | Dừng hoặc đổi hướng nếu |
 |---|---|---|---|
-| **A0** | Lõi nhãn mềm và test (**xong 13/11**). Còn lại: gắn `sci_once`, `sci_mf` vào bộ chạy; bộ sinh bài toán nhãn yếu tổng hợp từ `tabicl.prior`; tra tài liệu theo giao thức; ghi trước A1 | CPU, 3–5 ngày | tìm thấy công trình đã làm đúng SCI-FT |
+| **A0** | Lõi nhãn mềm và test (**xong 13/11**). Lượt SMOKE trên Kaggle: kiểm kỹ thuật với trọng số thật. Còn lại: gắn `sci_once`, `sci_mf` vào bộ chạy; tra tài liệu theo giao thức (prompt P4); ghi trước A1 (prompt P3) | CPU và 1 lượt SMOKE ngắn, 3–5 ngày | SMOKE cho thấy nhãn mềm one-hot không trùng nhãn cứng với trọng số thật (lệch ≥ 10⁻³) mà không sửa được; hoặc tìm thấy công trình đã làm đúng SCI-FT |
 | **A1** | Thí điểm SCI-0 trên tập phát triển, chỉ suy luận (`A1_PILOT_PLAN.md`) | 1 phiên Kaggle | không dừng hướng; chỉ quyết định SCI-0 có vào bài hay không |
 | **A2** | Thí điểm SCI-FT: fine-tune ngắn, ngữ cảnh ≤ 1.024 điểm, ≤ 10 lớp | khoảng 20–30 giờ T4 (3–4 phiên) | SCI-FT một lượt kém chuỗi Gibbs đơn ở PLL q 0,6 trên tập phát triển; hoặc mất mát trên tập kiểm tra tổng hợp không giảm so với lúc chưa fine-tune |
 | **A3** | LLP, trên 10 lớp, nhãn bù; ablation (thành phần cơ chế huấn luyện, phần đóng băng, kích thước ngữ cảnh) | 2–4 phiên | — |
@@ -108,10 +111,10 @@ Mọi số dưới đây lấy từ Study 3 và S3B (20 dataset mới, 4 TFM; `F
 
 | # | Câu hỏi | Đề xuất của em |
 |---|---|---|
-| Q1 | Duyệt SCI (SCI-0 và SCI-FT) làm thuật toán của v3? | có |
-| Q2 | Ngân sách GPU: dùng hạn mức Kaggle khoảng 3–4 tuần cho SCI-FT, thêm Colab nếu cần? | có |
-| Q3 | Phạm vi: bắt đầu với nhãn yếu cấp mẫu (PLL, nhãn nhiễu, bán giám sát, nhãn bù), LLP ở mốc A3? | có |
-| Q4 | Duyệt bản nháp `A1_PILOT_PLAN.md` để em gắn code và đóng băng | sau Q1 |
+| Q1 | Duyệt SCI (SCI-0 và SCI-FT) làm thuật toán của v3? | **đã duyệt 13/11** |
+| Q2 | Ngân sách GPU: dùng hạn mức Kaggle khoảng 3–4 tuần cho SCI-FT, thêm Colab nếu cần? | **đã duyệt 13/11** |
+| Q3 | Phạm vi: bắt đầu với nhãn yếu cấp mẫu (PLL, nhãn nhiễu, bán giám sát, nhãn bù), LLP ở mốc A3? | **đã duyệt 13/11** |
+| Q4 | Duyệt bản nháp `A1_PILOT_PLAN.md` để em gắn code và đóng băng | chờ: duyệt khi code A1 xong (prompt P3) |
 
 ## 9. Các hướng thuật toán khác đã cân nhắc
 

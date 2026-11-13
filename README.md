@@ -10,6 +10,9 @@ Kho riêng tư của bài v3 (đích NeurIPS 2027). Tách khỏi bài v2 (*In-Co
 | [`HANDOFF.md`](HANDOFF.md) | trạng thái, việc kế tiếp, việc chờ thầy |
 | [`v3/`](v3/) | hồ sơ bài v3: chương trình nghiên cứu, những gì đã biết, ghi chú lý thuyết, tài liệu, ma trận khẳng định, kế hoạch thí điểm, phân tích định hướng |
 | [`code/`](code/) | thư viện `icgibbs`, bộ chạy theo ô, script lượt Kaggle, test. Bản sống, phát triển tiếp cho v3 |
+| [`docs/claude-science/`](docs/claude-science/) | **bắt đầu ở đây nếu làm trong Claude Science**: cài đặt, tạo Project, quy trình Kaggle, prompt |
+| [`skills/`](skills/) | hai skill của đề tài cho Claude Science |
+| [`tools/`](tools/) | đóng gói code gửi Kaggle; nhận và kiểm kết quả |
 | [`research-handbook/`](research-handbook/) | sổ tay nghiên cứu (13 cổng G0–G12, thiết kế thực nghiệm, mẫu biểu); chương 11 dành riêng cho v3 |
 | [`prior/`](prior/) | bản chụp đóng băng của dự án bài v1/v2: hồ sơ, code, kết quả, dữ liệu thô theo ô, bài v2, các biên bản phản biện. Không sửa |
 

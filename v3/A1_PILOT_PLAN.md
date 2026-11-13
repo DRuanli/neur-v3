@@ -1,6 +1,6 @@
 # Mốc A1: thí điểm SCI-0 (ngữ cảnh nhãn mềm, TFM đóng băng)
 
-- **Trạng thái: BẢN NHÁP ngày 13/11/2026, chưa đóng băng, chưa có code chạy.** Chỉ đóng băng sau khi thầy duyệt `V3_PLAN.md` (Q1, Q4) và sau khi code `sci_once`, `sci_mf` được gắn vào bộ chạy và qua test. Khi đóng băng, ghi commit vào đây.
+- **Trạng thái: BẢN NHÁP ngày 13/11/2026, chưa đóng băng.** Hướng SCI đã chốt (`V3_PLAN.md` Q1–Q3). Đóng băng sau khi: code `sci_once`, `sci_mf` được gắn vào bộ chạy và qua test; lượt SMOKE xong; thầy duyệt Q4. Làm theo prompt P3 trong `docs/claude-science/PROMPTS_NGHIEN_CUU.md`. Khi đóng băng, ghi commit vào đây.
 - **Loại:** thăm dò trên tập phát triển. Kết quả không là khẳng định của bài.
 
 ## 1. Câu hỏi

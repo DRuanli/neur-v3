@@ -2,7 +2,33 @@
 
 *Cập nhật 13/11/2026 (mục 0); phần còn lại ngày 12/11/2026. Mỗi khi trạng thái đổi, sửa tài liệu này trước tiên. Kho: `github.com/DRuanli/neur-v3`, nhánh `main`.*
 
-## 00. Mới nhất (13/11/2026, chiều): thầy chọn hướng phát triển thuật toán
+## 000. Mới nhất (13/11/2026, 14 giờ): đã chốt bản 3; chuyển sang Claude Science
+
+- **Thầy chốt kế hoạch bản 3** (13/11/2026 13:39): Q1–Q3 duyệt theo đề xuất; Q4 (đóng băng A1) duyệt khi code A1 xong.
+- **Từ nay làm việc trong Claude Science** trên máy thầy, Project `neur-v3`. Hướng dẫn đầy đủ ở `docs/claude-science/`:
+  - `01_CAI_DAT_MAY_LOCAL.md`: cài đặt, clone kho, khoá Kaggle;
+  - `02_TAO_PROJECT.md`: tạo Project, cấp thư mục, skill, reviewer;
+  - `03_QUY_TRINH_KAGGLE.md`: hai ô notebook, chế độ CLI tuỳ chọn, nhận kết quả;
+  - `PROJECT_INSTRUCTIONS.md`, `REVIEWER_CRITERIA.md`, `PROMPT_KHOI_DAU.md`, `PROMPTS_NGHIEN_CUU.md` (P0–P11).
+- **Công cụ mới:**
+  - `tools/make_code_bundle.py`;
+  - `tools/intake_results.py` (đã thử trên gói S3B thật: 87 file khớp mã băm);
+  - `code/run_v3_lot.sh` với lượt SMOKE;
+  - `code/smoke_softctx.py`;
+  - `kaggle/templates/`.
+- **Skill:** `skills/neur-v3-research`, `skills/kaggle-lot` (tải lên Claude Science dạng zip; kho quá 100 MB nên không nhập từ GitHub được).
+- **Test:** 176 qua, 5 bỏ qua (CPU).
+- **Việc kế tiếp, theo thứ tự:**
+  1. thầy cài đặt theo `01` và `02`;
+  2. phiên đầu với `PROMPT_KHOI_DAU.md`;
+  3. thầy chạy lượt SMOKE trên Kaggle (vài phút, một T4, Internet On, không cần Secret);
+  4. P2 nhận SMOKE;
+  5. P3 hoàn tất A0 và đóng băng A1, song song P4 tra tài liệu;
+  6. P1 chạy A1;
+  7. P5 chuẩn bị SCI-FT.
+- **Việc treo của bài v2:** phiên 2 của lượt S3B (5 ô B3) — prompt P11.
+
+## 00. Ngày 13/11/2026 (chiều): thầy chọn hướng phát triển thuật toán
 
 - `v3/V3_PLAN.md` nay là **bản 3**: thuật toán SCI (ngữ cảnh nhãn mềm), gồm SCI-0 (TFM đóng băng) và SCI-FT (fine-tune TabICL v2 trên bài toán nhãn yếu tổng hợp để một lượt truyền xuôi trả về dự đoán hậu nghiệm). Bản 2 ở `v3/archive/`.
 - **Đã làm:** `code/icgibbs/softctx.py` (bản vá encoder nhãn của TabICL, trường trung bình trong ngữ cảnh) và `code/tests/test_softctx.py` (8 test qua trên CPU với mô hình khởi tạo ngẫu nhiên; nhãn mềm one-hot trùng nhãn cứng, lệch dưới 1e-5).
@@ -59,6 +85,10 @@ Số liệu định hướng (thăm dò, 6 dataset, một TFM): tỉ giá đo đ
 | `v3/A1_PILOT_PLAN.md` | bản nháp thí điểm SCI-0 |
 | `v3/archive/` | bản 2 (tỉ giá) và bản nháp M2 cũ |
 | `code/icgibbs/softctx.py` | lõi nhãn mềm cho TabICL v2 |
+| `docs/claude-science/` | cài đặt Claude Science, tạo Project, quy trình Kaggle, prompt |
+| `skills/` | hai skill của đề tài |
+| `tools/` | đóng gói code; nhận kết quả Kaggle |
+| `kaggle/templates/` | mẫu cho chế độ Kaggle CLI |
 | `v3/V3_IDEA_CHECK_2026-11-13.md` | kiểm định luận điểm bằng S3B và tài liệu; ba hướng thay thế |
 | `v3/FINDINGS.md` | những gì đã biết, kèm nguồn số |
 | `v3/THEORY_NOTES.md` | tỉ giá trần, bản nháp |
